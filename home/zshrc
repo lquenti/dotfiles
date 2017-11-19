@@ -1,0 +1,39 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+EDITOR="/bin/vim"
+
+alias ls='ls --color=auto'
+alias ll='ls -la'
+alias free='free -m'
+alias cls='clear'
+alias cl='clear'
+alias openpic='gpicview'
+alias openpic='gpicview'
+alias pdf='mupdf'
+alias openpdf='mupdf'
+
+alias pS='sudo pacman -S'
+alias pSyu='sudo pacman -Syu'
+alias pSyy='sudo pacman -Syy'
+alias pR='sudo pacman -R'
+alias pRs='sudo pacman -Rs'
+alias pQ='sudo pacman -Q' # all packages
+alias pQet='sudo pacman -Qet' # All installed packages w/o dependencies
+alias pQl='sudo pacman -Ql' # All files installed by all packages
+
+alias bashrc='echo "You are not using bash anymore ffs"'
+alias zshrc='$EDITOR ~/.zshrc'
+alias vimrc='$EDITOR ~/.vimrc'
+alias termrc='$EDITOR ~/.config/termite/config'
+alias xinitrc='$EDITOR ~/.xinitrc'
+alias rclua='$EDITOR ~/.config/awesome/rc.lua'
+alias themelua='$EDITOR ~/.config/awesome/themes/theme.lua'
+alias qtilerc='$EDITOR ~/.config/qtile/config.py'
+alias rclua='$EDITOR ~/.config/awesome/rc.lua'
+alias mkdoc='$EDITOR ~/Documents/'
+alias irc='weechat'
+alias matrix='weechat'
+
+
+# PS1='[\u@\h \W]\$ '
