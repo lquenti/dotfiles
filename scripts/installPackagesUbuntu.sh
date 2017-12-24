@@ -10,4 +10,4 @@ apt upgrade -y
 # Explainations for some packages:
 # libappindicator1 for rambox
 # compizconfig-settings-manager  for unityconfiguration
-apt install -y vim-nox libappindicator1 git zsh compizconfig-settings-manager default-jdk screenfetch keepassx texstudio texlive-full mc transmission
+apt install -y vim-nox libappindicator1 git zsh compizconfig-settings-manager default-jdk screenfetch keepassx texstudio texlive-full mc transmission htop
