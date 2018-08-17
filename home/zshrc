@@ -7,7 +7,7 @@ export ZSH=/home/lquenti/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="kardanfork"
+ZSH_THEME="kardan"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -21,7 +21,7 @@ ZSH_THEME="kardanfork"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -95,6 +95,13 @@ source $ZSH/oh-my-zsh.sh
 EDITOR="vim"
 
 alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ..='cd ..'
+alias home='cd ~/'
 alias sl='ls' # Because fuck you all
 alias ll='ls -laF'
 alias grep='grep --color=auto'
@@ -103,10 +110,8 @@ alias egrep='egrep --color=auto'
 alias free='free -m'
 alias cls='clear'
 alias cl='clear'
-alias openpic='gpicview'
-alias openpic='gpicview'
-alias pdf='mupdf'
-alias openpdf='mupdf'
+alias ping='ping -c 5'
+alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
 
 alias pS='sudo pacman -S'
 alias pSyu='sudo pacman -Syu'
@@ -116,16 +121,20 @@ alias pRs='sudo pacman -Rs'
 alias pQ='sudo pacman -Q' # all packages
 alias pQet='sudo pacman -Qet' # All installed packages w/o dependencies
 alias pQl='sudo pacman -Ql' # All files installed by all packages
+alias pCl='sudo pacman -R $(pacman -Qdtq)' # autoclean
+alias pCls='sudo pacman -R $(pacman -Qdtq)' # autoclean
+alias pClean='sudo pacman -R $(pacman -Qdtq)' # autoclean
 
 alias aSyu='sudo apt update && sudo apt upgrade'
 alias aSyuy='sudo apt update && sudo apt upgrade -y'
 alias aS='sudo apt install'
 alias aR='sudo apt purge'
-alias aRs='sudo apt-get autoremove' # TODO: replace w/ own func
+alias aCl='sudo apt-get autoremove'
+alias aCls='sudo apt-get autoremove'
+alias aClean='sudo apt-get autoremove'
 
 alias bashrc='echo "You are not using bash anymore ffs"'
 alias zshrc='$EDITOR ~/.zshrc'
-alias zshrcpriv='$EDITOR ~/.zshrcpriv'
 alias vimrc='$EDITOR ~/.vimrc'
 alias termrc='$EDITOR ~/.config/termite/config'
 alias xinitrc='$EDITOR ~/.xinitrc'
@@ -136,4 +145,22 @@ alias rclua='$EDITOR ~/.config/awesome/rc.lua'
 alias mkdoc='$EDITOR ~/Documents/'
 alias irc='weechat'
 alias matrix='weechat'
-. ~/.zshrcpriv
+
+alias weather='curl wttr.in/Göttingen'
+
+alias enter_matrix='echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $(($RANDOM % 5)) == 1 ]]; then if [[ $(($RANDOM % 4)) == 1 ]]; then v+="\e[1m $r   "; else v+="\e[2m $r   "; fi; else v+="     "; fi; done; echo -e "$v"; v=""; done'
+# copyright 2007 - 2010 Christopher Bratusek
+top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head; }
+
+dirsize () {
+  du -shx * .[a-zA-Z0-9_]* 2> /dev/null | egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
+  egrep '^ *[0-9.]*M' /tmp/list
+  egrep '^ *[0-9.]*G' /tmp/list
+  rm -rf /tmp/list
+}
+
+function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
+
+function cheat() {
+	curl cht.sh/$1
+}
