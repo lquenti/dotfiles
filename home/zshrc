@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-EDITOR="vim"
+EDITOR="nvim"
 
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
@@ -111,7 +111,15 @@ alias free='free -m'
 alias cls='clear'
 alias cl='clear'
 alias ping='ping -c 5'
+alias youtube-dl="youtube-dl -i" # Ignore Errors
 alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
+alias calc='python -i -c "
+from math import *
+import numpy as np
+import sys
+sys.ps1 = \"λ> \"
+"'
+alias pi='ssh 192.168.0.161'
 
 alias pS='sudo pacman -S'
 alias pSyu='sudo pacman -Syu'
@@ -133,9 +141,20 @@ alias aCl='sudo apt-get autoremove'
 alias aCls='sudo apt-get autoremove'
 alias aClean='sudo apt-get autoremove'
 
+alias emerge='sudo emerge'
+alias search='emerge --search'
+alias Search='emerge -S'
+alias demerge='emerge --unmerge'
+alias eSyu='emerge --update --deep --with-bdeps=y @world'
+alias enewuse='emerge --update --deep --with-bdeps=y @world'
+alias eCl='emerge --depclean'
+alias eCls='emerge --depclean'
+alias eClean='emerge --depclean'
+
 alias bashrc='echo "You are not using bash anymore ffs"'
 alias zshrc='$EDITOR ~/.zshrc'
 alias vimrc='$EDITOR ~/.vimrc'
+alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
 alias termrc='$EDITOR ~/.config/termite/config'
 alias xinitrc='$EDITOR ~/.xinitrc'
 alias rclua='$EDITOR ~/.config/awesome/rc.lua'
@@ -145,11 +164,11 @@ alias rclua='$EDITOR ~/.config/awesome/rc.lua'
 alias mkdoc='$EDITOR ~/Documents/'
 alias irc='weechat'
 alias matrix='weechat'
+alias vim='nvim'
+alias nvim_install='nvim +PlugInstall +UpdateRemotePlugins +qa'
 
 alias weather='curl wttr.in/Göttingen'
 
-alias enter_matrix='echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $(($RANDOM % 5)) == 1 ]]; then if [[ $(($RANDOM % 4)) == 1 ]]; then v+="\e[1m $r   "; else v+="\e[2m $r   "; fi; else v+="     "; fi; done; echo -e "$v"; v=""; done'
-# copyright 2007 - 2010 Christopher Bratusek
 top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head; }
 
 dirsize () {
@@ -164,3 +183,4 @@ function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 function cheat() {
 	curl cht.sh/$1
 }
+

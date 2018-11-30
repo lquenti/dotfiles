@@ -1,0 +1,11 @@
+{
+        "initializationOptions": {
+                "cacheDirectory": "/tmp/ccls"
+        }
+}
+{
+    "languageServerHaskell": {
+        "hlintOn": Boolean,
+        "maxNumberOfProblems": Number
+    }
+}
