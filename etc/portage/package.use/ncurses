@@ -1,0 +1,2 @@
+# Needed for purescript
+sys-libs/ncurses:5 tinfo
