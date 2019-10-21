@@ -1,55 +1,144 @@
+" Begin general configuration
+" Set hybrid numbers
 set nu
-set modelines=0
-set t_vb=
 set relativenumber
-set completeopt-=preview " TODO: Own Function
-set tabstop=2
+
+set shiftwidth=2 tabstop=2 expandtab
+
+" Setting a length marker at 80 char
+" set colorcolumn=100
+
+" Short form for:
+" filetype on
+"   - Tries to detect the language and set a filetype event for that language
+"   - All other filetype commands will turn it on implicitly as well
+" filetype indent on
+"   - loading indent files for specific file types
+" filetype plugin on
+"   - loads filetype specific plugins
+filetype plugin indent on
+
+" Disable visual beep
+set t_vb=0
+
+" Set cursor highlightning
+set cursorline
+" End general configuration
 
 call plug#begin()
-" Begin Language-Client
+" Begin nord
+Plug 'arcticicestudio/nord-vim'
+" End nord
+
+" Begin discord integration
+Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
+" End discord integration
+
+" Begin NerdTree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons' " Require nerdfont
+" End NerdTree
+
+" Begin Airline
+Plug 'vim-airline/vim-airline'
+" End Airline
+
+" Begin indentLine (shows indentation)
+Plug 'Yggdroot/indentLine'
+" End indentLine
+
+" Begin vim-surround
+Plug 'tpope/vim-surround'
+" End vim-surround
+
+" Begin vim-startify
+Plug 'mhinz/vim-startify'
+" End vim-startify
+
+" Begin LanguageClient-neovim 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" End Language-Client
+" End LanguageClient-neovim 
 
-" Begin Spacemacs-theme-vim
-Plug 'colepeters/spacemacs-theme.vim'
-" End Spacemacs-theme-vim
-
-" Begin vimtex
-Plug 'lervag/vimtex'
-" End vimtex
 call plug#end()
+" Begin nord Configuration
+colorscheme nord
+" Set cursor line for the number part as well
+let g:nord_cursor_line_number_background = 1
+" End nord Configuration
 
+" Begin NerdTree Configuration
+" maps opening and closing NerdTree to C-x C-f
+nnoremap <silent> <C-x><C-f> :NERDTreeToggle<CR>
+" Hotfix because indentLine_leadingSpaceEnabled breaks nerdtrees indentation
+" See: https://github.com/Yggdroot/indentLine/issues/152
+autocmd BufEnter NERD_tree* :LeadingSpaceDisable
+" Automatically close NERDTree when a file was opened
+let NERDTreeQuitOnOpen = 1
+" End NerdTree Configuration
 
-" Begin General Language-Client Configuration
+" Begin indentLine configuration
+let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_leadingSpaceEnabled=1
+let g:indentLine_fileTypeExclude = ['startify', ".py"]
+" Disable at startify
+" End indentLine configuration
+
+" Begin airline configuration
+" See: https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+" end airline configuration
+
+" Begin startify configuration
+" TODO: Further configuration
+let g:startify_fortune_use_unicode = 1
+" End startify configuration
+
+" Begin LanguageClient-neovim configuration
 " Required for operations modifying multiple buffers like rename.
 set hidden
+
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['~/Documents/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'cpp': ['~/Documents/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'cuda': ['~/Documents/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'objc': ['~/Documents/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'python': ['~/.local/bin/pyls'],
-\ }
+    \ 'c': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
+    \ 'cpp': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
+    \ 'cuda': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
+    \ 'objc': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
+    \ }
+
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <F6> :call LanguageClient#textDocument_completion()<CR>
-
-let g:deoplete#enable_at_startup = 1
-let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-let g:LanguageClient_settingsPath = '/home/YOUR_USERNAME/.config/nvim/settings.json'
-" https://github.com/autozimu/LanguageClient-neovim/issues/379 LSP snippet is not supported
-let g:LanguageClient_hasSnippetSupport = 0
-" End General Language-Client Configuration
-
-" Begin Spacemacs-theme-vim Configuration
-if (has("termguicolors"))
-  set termguicolors
-endif
-set background=dark
-colorscheme spacemacs-theme
-" End Spacemacs-theme-vim Configuration
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" End LanguageClient-neovim configuration

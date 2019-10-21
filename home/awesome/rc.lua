@@ -262,7 +262,7 @@ awful.screen.connect_for_each_screen(function(s)
 	    ram_widget,
 	    volumecfg.widget,
 	    --brightness_ctrl.widget,
-	    --require("battery-widget") {},
+	    require("gitrepos.battery-widget.battery-widget") {},
             mytextclock,
             s.mylayoutbox,
         },
@@ -539,8 +539,8 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-     { rule = { class = "Firefox" },
-       properties = { screen = 1, tag = "Web" } },
+     --{ rule = { class = "Firefox" },
+       --properties = { screen = 1, tag = "Web" } },
      { rule = { class = "Emacs" },
        properties = { size_hints_honor = false} },
      { rule = { class = "Thunderbird" },
