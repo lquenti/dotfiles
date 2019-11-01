@@ -3,6 +3,9 @@
 set nu
 set relativenumber
 
+" soft wrap
+set linebreak
+
 set shiftwidth=2 tabstop=2 expandtab
 
 " Setting a length marker at 80 char
@@ -65,6 +68,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
 " End LanguageClient-neovim 
+
+" Begin vimtex
+Plug 'lervag/vimtex'
+" end vimtex
 
 call plug#end()
 " Begin nord Configuration
@@ -142,3 +149,10 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " End LanguageClient-neovim configuration
+
+" Begin vimtex configuration
+" Otherwise sometimes it will detect latex as tex (see vimtexdocs)
+let g:tex_flavour = 'latex' 
+" Disbale those awful math symbol conversion
+let g:tex_conceal = ""
+" End vimtex configuration
