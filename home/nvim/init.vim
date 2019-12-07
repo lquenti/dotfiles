@@ -33,10 +33,6 @@ call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 " End nord
 
-" Begin discord integration
-Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
-" End discord integration
-
 " Begin NerdTree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
