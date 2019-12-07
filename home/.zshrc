@@ -7,7 +7,7 @@ export ZSH=/home/lquenti/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="kardan"
+ZSH_THEME="half-life"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -143,7 +143,7 @@ alias aCl='sudo apt-get autoremove'
 alias aCls='sudo apt-get autoremove'
 alias aClean='sudo apt-get autoremove'
 
-alias emerge='sudo emerge -av'
+alias emerge='sudo emerge'
 alias search='emerge --search'
 alias Search='emerge -S'
 alias demerge='emerge --unmerge'
@@ -188,3 +188,9 @@ function cheat() {
 	curl cht.sh/$1
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval $(thefuck --alias)
+alias frick="fuck"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
