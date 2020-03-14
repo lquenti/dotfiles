@@ -162,7 +162,9 @@ alias xinitrc='$EDITOR ~/.xinitrc'
 alias rclua='$EDITOR ~/.config/awesome/rc.lua'
 alias themelua='$EDITOR ~/.config/awesome/themes/theme.lua'
 alias qtilerc='$EDITOR ~/.config/qtile/config.py'
-alias rclua='$EDITOR ~/.config/awesome/rc.lua'
+alias termrc='$EDITOR ~/.config/xfce4/terminal/terminalrc'
+alias terminalrc=termrc
+alias xfcerc=termrc
 alias mkdoc='$EDITOR ~/Documents/'
 alias irc='weechat'
 alias matrix='weechat'
@@ -192,5 +194,5 @@ function cheat() {
 eval $(thefuck --alias)
 alias frick="fuck"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

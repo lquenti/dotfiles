@@ -1,7 +1,7 @@
 " Begin general configuration
 " Set hybrid numbers
 set nu
-set relativenumber
+set rnu
 
 " soft wrap
 set linebreak
@@ -30,7 +30,7 @@ set cursorline
 
 call plug#begin()
 " Begin nord
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 " End nord
 
 " Begin NerdTree
@@ -71,7 +71,7 @@ Plug 'lervag/vimtex'
 
 call plug#end()
 " Begin nord Configuration
-colorscheme nord
+" colorscheme nord
 " Set cursor line for the number part as well
 let g:nord_cursor_line_number_background = 1
 " End nord Configuration

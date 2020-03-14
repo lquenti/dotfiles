@@ -1,0 +1,42 @@
+name: CI tests
+
+on:
+  push:
+    paths-ignore:
+      - 'doc/*'
+      - 'docker/*'
+      - 'media/*'
+      - '*.md'
+
+jobs:
+  run-tests:
+    name: Test on ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install packages
+      run: |
+        sudo apt update
+        sudo apt install neovim
+        sudo apt install texlive texlive-latex-extra texlive-extra-utils
+        sudo apt install latexmk
+        sudo apt install gcc moreutils
+        sudo apt install libmodule-build-perl
+        sudo apt install libconfig-autoconf-perl
+        sudo apt install libextutils-libbuilder-perl
+    - name: Install bibparse
+      run: |
+        wget https://search.cpan.org/CPAN/authors/id/A/AM/AMBS/Text-BibTeX-0.85.tar.gz
+        tar zxf Text-BibTeX-0.85.tar.gz
+        cd Text-BibTeX-0.85
+        perl Build.PL
+        ./Build
+        sudo ./Build install
+    - uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Test with neovim
+      run: cd test/tests && make -j1
+    - name: Test with vim
+      env:
+        MYVIM: vim -T dumb --not-a-term --noplugin -n
+      run: cd test/tests && make -j1
