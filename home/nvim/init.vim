@@ -6,6 +6,12 @@ set rnu
 " Disable autohiding of quotes in json
 set conceallevel=0
 
+" Indentation for inline css/js
+" https://stackoverflow.com/questions/34967130/vim-right-way-to-indent-css-and-js-inside-html
+let g:html_indent_script1 = "inc" 
+let g:html_indent_style1 = "inc" 
+
+
 
 " soft wrap
 set linebreak
