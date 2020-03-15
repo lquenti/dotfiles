@@ -125,7 +125,7 @@ end
 -- {{{ Wibar
 -- Create a textclock widget
 -- man strftime
-mytextclock = wibox.widget.textclock(" %H:%M ")
+mytextclock = wibox.widget.textclock("%y-%m-%d %H:%M ")
 
 -- Volume Control
 local volume_control = require("gitrepos.volume-control")
