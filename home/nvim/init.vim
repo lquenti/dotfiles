@@ -8,6 +8,8 @@ set linebreak
 
 set shiftwidth=2 tabstop=2 expandtab
 
+" Use Terminal Colors
+
 " Setting a length marker at 80 char
 " set colorcolumn=100
 
@@ -70,8 +72,7 @@ Plug 'lervag/vimtex'
 " end vimtex
 
 call plug#end()
-" Begin nord Configuration
-" colorscheme nord
+colorscheme dim
 " Set cursor line for the number part as well
 let g:nord_cursor_line_number_background = 1
 " End nord Configuration
