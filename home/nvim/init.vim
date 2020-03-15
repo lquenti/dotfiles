@@ -92,7 +92,8 @@ let NERDTreeQuitOnOpen = 1
 let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_fileTypeExclude = ['startify', ".py"]
-let g:indentLine_conceallevel = 0
+" https://github.com/Yggdroot/indentLine/issues/140#issuecomment-596280543
+let g:indentLine_concealcursor = ''
 " Disable at startify
 " End indentLine configuration
 
