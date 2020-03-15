@@ -135,6 +135,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
     \ 'cuda': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
     \ 'objc': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
+    \ 'python': ['pyls'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>

@@ -212,7 +212,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "🌐", ">", ">", "λ", "Σ", "📁", "🎵", "📧", "💬"}, s, awful.layout.layouts[1])
+    awful.tag({ "🌐", ">", ">", "λ", "Σ", "📁", "💬", "📧", "🎵"}, s, awful.layout.layouts[1])
     -- awful.tag.add("First tag", {
        -- icon               = "/path/to/icon1.png",
        -- layout             = awful.layout.suit.tile,
