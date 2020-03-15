@@ -212,7 +212,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "Web", "Term", "Term", "Code", "Other", "Files", "Music", "Email", "Social"}, s, awful.layout.layouts[1])
+    awful.tag({ "🌐", ">", ">", "λ", "Σ", "📁", "🎵", "📧", "💬"}, s, awful.layout.layouts[1])
     -- awful.tag.add("First tag", {
        -- icon               = "/path/to/icon1.png",
        -- layout             = awful.layout.suit.tile,
@@ -541,12 +541,12 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
      --{ rule = { class = "Firefox" },
        --properties = { screen = 1, tag = "Web" } },
-     { rule = { class = "Emacs" },
-       properties = { size_hints_honor = false} },
-     { rule = { class = "Thunderbird" },
-       properties = { screen = 1, tag = "Email" } },
-     { rule = { class = "Rambox" },
-       properties = { screen = 1, tag = "Social" } },
+     --{ rule = { class = "Emacs" },
+       --properties = { size_hints_honor = false} },
+     --{ rule = { class = "Thunderbird" },
+       --properties = { screen = 1, tag = "Email" } },
+     --{ rule = { class = "Rambox" },
+       --properties = { screen = 1, tag = "Social" } },
 }
 -- }}}
 
