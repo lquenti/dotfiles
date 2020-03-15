@@ -31,9 +31,6 @@ set cursorline
 " End general configuration
 
 call plug#begin()
-" Begin nord
-" Plug 'arcticicestudio/nord-vim'
-" End nord
 
 " Begin NerdTree
 Plug 'scrooloose/nerdtree'

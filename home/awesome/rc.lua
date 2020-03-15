@@ -125,7 +125,7 @@ end
 -- {{{ Wibar
 -- Create a textclock widget
 -- man strftime
-mytextclock = wibox.widget.textclock("%H:%M")
+mytextclock = wibox.widget.textclock(" %H:%M ")
 
 -- Volume Control
 local volume_control = require("gitrepos.volume-control")
@@ -243,6 +243,10 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    l_sep = wibox.widget.textbox(" [")
+    m_sep = wibox.widget.textbox(" | ")
+    r_sep = wibox.widget.textbox("] ")
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal(),
@@ -257,14 +261,16 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             wibox.widget.systray(),
-	    spotify_widget,
 	    cpu_widget,
 	    ram_widget,
+      l_sep,
 	    volumecfg.widget,
-	    --brightness_ctrl.widget,
+      m_sep,
 	    require("gitrepos.battery-widget.battery-widget") {},
-            mytextclock,
-            s.mylayoutbox,
+      m_sep,
+      mytextclock,
+      r_sep,
+      s.mylayoutbox,
         },
     }
 end)
