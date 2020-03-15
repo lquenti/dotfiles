@@ -3,6 +3,10 @@
 set nu
 set rnu
 
+" Disable autohiding of quotes in json
+set conceallevel=0
+
+
 " soft wrap
 set linebreak
 
@@ -88,6 +92,7 @@ let NERDTreeQuitOnOpen = 1
 let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_fileTypeExclude = ['startify', ".py"]
+let g:indentLine_conceallevel = 0
 " Disable at startify
 " End indentLine configuration
 
