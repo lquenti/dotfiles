@@ -173,6 +173,7 @@ alias vim='nvim'
 alias nvim_install='nvim +PlugInstall +UpdateRemotePlugins +qa'
 alias pdftex='pdflatex document.tex'
 alias dispatch-conf='sudo dispatch-conf'
+alias gs='git status'
 
 alias weather='curl wttr.in/Göttingen'
 
