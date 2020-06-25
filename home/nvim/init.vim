@@ -76,7 +76,11 @@ Plug 'junegunn/fzf'
 
 " Begin vimtex
 Plug 'lervag/vimtex'
-" end vimtex
+" End vimtex
+
+" Begin vim-closetag
+Plug 'alvan/vim-closetag'
+" End vim-closetag
 
 call plug#end()
 colorscheme dim
