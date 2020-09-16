@@ -123,18 +123,20 @@ sys.ps1 = \"λ> \"
 "'
 alias pi='ssh 192.168.0.161'
 alias dia='dia --integrated'
+alias cal='ncal'
 
-alias pS='sudo pacman -S'
-alias pSyu='sudo pacman -Syu'
-alias pSyy='sudo pacman -Syy'
-alias pR='sudo pacman -R'
-alias pRs='sudo pacman -Rs'
-alias pQ='sudo pacman -Q' # all packages
-alias pQet='sudo pacman -Qet' # All installed packages w/o dependencies
-alias pQl='sudo pacman -Ql' # All files installed by all packages
-alias pCl='sudo pacman -R $(pacman -Qdtq)' # autoclean
-alias pCls='sudo pacman -R $(pacman -Qdtq)' # autoclean
-alias pClean='sudo pacman -R $(pacman -Qdtq)' # autoclean
+alias pacman='sudo pacman'
+alias pS='pacman -S'
+alias pSyu='pacman -Syu'
+alias pSyy='pacman -Syy'
+alias pR='pacman -R'
+alias pRs='pacman -Rs'
+alias pQ='pacman -Q' # all packages
+alias pQet='pacman -Qet' # All installed packages w/o dependencies
+alias pQl='pacman -Ql' # All files installed by all packages
+alias pCl='pacman -R $(pacman -Qdtq)' # autoclean
+alias pCls='pacman -R $(pacman -Qdtq)' # autoclean
+alias pClean='pacman -R $(pacman -Qdtq)' # autoclean
 
 alias aSyu='sudo apt update && sudo apt upgrade'
 alias aSyuy='sudo apt update && sudo apt upgrade -y'
@@ -198,3 +200,4 @@ alias frick="fuck"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
