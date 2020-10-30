@@ -19,11 +19,6 @@ set linebreak
 
 set shiftwidth=2 tabstop=2 expandtab
 
-" Use Terminal Colors
-
-" Setting a length marker at 80 char
-" set colorcolumn=100
-
 " Short form for:
 " filetype on
 "   - Tries to detect the language and set a filetype event for that language
@@ -61,33 +56,15 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 " End vim-surround
 
-" Begin vim-startify
-Plug 'mhinz/vim-startify'
-" End vim-startify
-
-" Begin LanguageClient-neovim 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-" (Optional) Multi-entry selection UI.
-Plug 'junegunn/fzf'
-" End LanguageClient-neovim 
-
-" Begin vimtex
-Plug 'lervag/vimtex'
-" End vimtex
-
 " Begin vim-closetag
 Plug 'alvan/vim-closetag'
 " End vim-closetag
 
 call plug#end()
+
+" Dim just uses ANSI colors therefore the config relies on the terminal
 colorscheme dim
-" Set cursor line for the number part as well
-let g:nord_cursor_line_number_background = 1
-" End nord Configuration
+
 
 " Begin NerdTree Configuration
 " maps opening and closing NerdTree to C-x C-f
@@ -137,34 +114,3 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 " end airline configuration
-
-" Begin startify configuration
-" TODO: Further configuration
-let g:startify_fortune_use_unicode = 1
-" End startify configuration
-
-" Begin LanguageClient-neovim configuration
-" Required for operations modifying multiple buffers like rename.
-set hidden
-
-let g:LanguageClient_serverCommands = {
-    \ 'c': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'cpp': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'cuda': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'objc': ['~/pkg/ccls/Release/ccls', '--log-file=/tmp/cc.log'],
-    \ 'python': ['pyls'],
-    \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-" End LanguageClient-neovim configuration
-
-" Begin vimtex configuration
-" Otherwise sometimes it will detect latex as tex (see vimtexdocs)
-let g:tex_flavour = 'latex' 
-" Disbale those awful math symbol conversion
-let g:tex_conceal = ""
-" End vimtex configuration
