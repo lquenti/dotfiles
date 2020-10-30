@@ -18,7 +18,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 let g:html_indent_script1 = "inc" 
 let g:html_indent_style1 = "inc" 
 
-" Show a max line length of 100
+" Show a max line length of 80
 set colorcolumn=100
 
 " soft wrap
@@ -70,6 +70,10 @@ Plug 'alvan/vim-closetag'
 " Begin coc (language server)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " End coc (language server)
+
+" Begin Linuxsty (kernel style guide)
+Plug 'vivien/vim-linux-coding-style'
+" End Linuxsty
 
 call plug#end()
 
