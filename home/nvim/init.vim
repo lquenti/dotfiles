@@ -8,6 +8,9 @@ let mapleader = ","
 
 " Disable autohiding of quotes in json
 set conceallevel=0
+" Somehow, this isn't enough for LaTeX therefore
+let g:tex_conceal = ''
+
 
 " Ignore comments in JSON to be compatible with JSONC
 " Stolen from https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
@@ -18,7 +21,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 let g:html_indent_script1 = "inc" 
 let g:html_indent_style1 = "inc" 
 
-" Show a max line length of 80
+" Show a max line length of 100
 set colorcolumn=100
 
 " soft wrap
