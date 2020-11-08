@@ -177,6 +177,9 @@ alias pdftex='pdflatex document.tex'
 alias dispatch-conf='sudo dispatch-conf'
 alias gs='git status'
 
+# https://stackoverflow.com/a/4208191/9958281
+alias xclip='xclip -selection c'
+
 alias weather='curl wttr.in/Göttingen'
 
 top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head; }
