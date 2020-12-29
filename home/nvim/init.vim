@@ -21,8 +21,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 let g:html_indent_script1 = "inc" 
 let g:html_indent_style1 = "inc" 
 
-" Show a max line length of 100
-set colorcolumn=100
+" Show a max line length of 80
+" set colorcolumn=80
+
 
 " soft wrap
 set linebreak

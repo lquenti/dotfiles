@@ -118,6 +118,7 @@ alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
 alias calc='python -i -c "
 from math import *
 import numpy as np
+import sympy
 import sys
 sys.ps1 = \"λ> \"
 "'
@@ -168,7 +169,6 @@ alias qtilerc='$EDITOR ~/.config/qtile/config.py'
 alias termrc='$EDITOR ~/.config/xfce4/terminal/terminalrc'
 alias terminalrc=termrc
 alias xfcerc=termrc
-alias mkdoc='$EDITOR ~/Documents/'
 alias irc='weechat'
 alias matrix='weechat'
 alias vim='nvim'
@@ -176,6 +176,13 @@ alias nvim_install='nvim +PlugInstall +UpdateRemotePlugins +qa'
 alias pdftex='pdflatex document.tex'
 alias dispatch-conf='sudo dispatch-conf'
 alias gs='git status'
+alias godocs="godoc -http :8000"
+
+# Otherwise I wont learn it 
+function scrot() {
+  # I need a function to throw away all arguments
+  flameshot gui
+}
 
 # https://stackoverflow.com/a/4208191/9958281
 alias xclip='xclip -selection c'
@@ -204,4 +211,7 @@ alias frick="fuck"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
-source ${HOME}/perl5/perlbrew/etc/bashrc
+#source ${HOME}/perl5/perlbrew/etc/bashrc
+
+export GOPATH=$HOME/Documents/Tech/go
+export PATH=$PATH:$GOPATH/bin
