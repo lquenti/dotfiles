@@ -3,9 +3,6 @@
 set nu
 set rnu
 
-" TODO: CHECK WHETHER THAT ONE WORKED
-let mapleader = ","
-
 " Disable autohiding of quotes in json
 set conceallevel=0
 " Somehow, this isn't enough for LaTeX therefore
@@ -21,14 +18,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 let g:html_indent_script1 = "inc" 
 let g:html_indent_style1 = "inc" 
 
-" Show a max line length of 80
-" set colorcolumn=80
-
-
 " soft wrap
 set linebreak
-
-set shiftwidth=2 tabstop=2 expandtab
 
 " Short form for:
 " filetype on
@@ -45,6 +36,11 @@ set t_vb=0
 
 " Set cursor highlightning
 set cursorline
+
+
+" Needed for rust.vim to be explicitly enabled
+syntax enable
+
 " End general configuration
 
 call plug#begin()
@@ -74,6 +70,10 @@ Plug 'alvan/vim-closetag'
 " Begin coc (language server)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " End coc (language server)
+
+" Begin rust.vim
+Plug 'rust-lang/rust.vim'
+" End rust.vim
 
 " Begin Linuxsty (kernel style guide)
 Plug 'vivien/vim-linux-coding-style'
@@ -278,3 +278,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " https://chmanie.com/post/2020/07/17/modern-c-development-in-neovim/
 
 " End coc configuration
+
+" Begin rust.vim Configuration
+" Automatically run rustfmt when saved
+let g:rustfmt_autosave = 1
+" End rust.vim Configuration
