@@ -8,6 +8,9 @@ set conceallevel=0
 " Somehow, this isn't enough for LaTeX therefore
 let g:tex_conceal = ''
 
+" https://medium.com/usevim/vim-101-set-hidden-f78800142855
+" (can also cause a soft block with coc.nvim, see https://medium.com/usevim/vim-101-set-hidden-f78800142855 )
+set hidden
 
 " Ignore comments in JSON to be compatible with JSONC
 " Stolen from https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
@@ -15,8 +18,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Indentation for inline css/js
 " https://stackoverflow.com/questions/34967130/vim-right-way-to-indent-css-and-js-inside-html
-let g:html_indent_script1 = "inc" 
-let g:html_indent_style1 = "inc" 
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " soft wrap
 set linebreak
@@ -75,6 +78,17 @@ Plug 'rust-lang/rust.vim'
 Plug 'vivien/vim-linux-coding-style'
 " End Linuxsty
 
+" Begin coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" End coc.nvim
+
+" Begin vim-better-whitespace
+"
+" Found here: https://stackoverflow.com/a/47048068/9958281
+" Read question for usage context
+Plug 'ntpeters/vim-better-whitespace'
+" End vim-better-whitespace
+
 call plug#end()
 
 " Dim just uses ANSI colors therefore the config relies on the terminal
@@ -132,5 +146,79 @@ let g:airline_symbols.linenr = ''
 
 " Begin rust.vim Configuration
 " Automatically run rustfmt when saved
+" (this is basically the only function used besides
+" the shorthand comments like
+" :Ccheck, Crun, ...
+" (See :help rust-commands)
 let g:rustfmt_autosave = 1
 " End rust.vim Configuration
+
+" Begin coc.nvim Configuration
+
+" TODO: Add support for the following coc-plugins:
+"   - coc-markdownlint
+"   - coc-discord{,-rpc} (dunno yet which one)
+"   - coc-go (or is there any other more common tooling?)
+"   - coc-pyright (or coc-jedi?)
+"   - coc-vimtex (or texlab? (probably texlab))
+
+" coc wrapps lsp servers into coc extensions, in order to improve their
+" integration. This also helps since coc is written in node, therefore they
+" can just fork the vsc plugins
+
+" Usually, the extensions are installed with
+" :CocInstall coc-json
+" (or if you are using the terminal with -c for command)
+" nvim -c 'CocInstall -sync coc-json'
+
+" In order to ensure that all extensions are available on a new machine, coc
+" allows global extensions to be defined. I quote the wiki:
+"
+" Note you can add extension names to the g:coc_global_extensions variable, and
+" coc will install the missing extensions after coc.nvim service started.
+"
+" (See: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#install-extensions)
+
+" One can also find all extensions with :CocList extensions
+" (the multiline comment syntax is defined unter :help line-continuation{,-comment}
+let g:coc_global_extensions = [
+	"\ coc-json is used for json validation
+	"\ See: https://github.com/neoclide/coc-json
+	\'coc-json',
+	"\ coc-rls is a rls wrapper, forked from rls-vscode,
+	"\ It expects the following packages to be installed
+	"\ rustup component add rls rust-analysis rust-src
+	"\ Further configuration is found unter nvim/coc-settings.json
+	\'coc-rls'
+	\]
+
+" Now, we have to bind everything.
+" See :help key-notation for the key names
+
+" Firstly, we have to rebind <cr> (Enter) in order to react to completion when
+" it is currently enabled
+"
+" inoremap replaces an mapping (:help inoremap)
+" I think it is needed here because we would otherwise have a recursive
+" definition.
+"
+" The <expr> part tells us, that the following is a complex expression instead
+" of just a key (:help :map-<expr>)
+"
+" pumvisible checks whether the completion menu is visible (:help pumvisible)
+"
+" The ?: is the ternary operator, if it is visible it <CR> confirms the
+" completion. If not it breaks the undo level and does a usual <CR>
+" (See: https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-cr-to-confirm-completion)
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use <TAB> and <S-Tab> (shift) to navigate the completion list.
+"
+" This one is simlilarly built and directly stolen from
+" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-tab-and-s-tab-to-navigate-the-completion-list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+
+" End coc.nvim Configuration
