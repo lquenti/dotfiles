@@ -12,6 +12,12 @@ let g:tex_conceal = ''
 " (can also cause a soft block with coc.nvim, see https://medium.com/usevim/vim-101-set-hidden-f78800142855 )
 set hidden
 
+" According to coc.nvim some language servers have issues with backup files,
+" therefore
+" See: https://github.com/neoclide/coc.nvim/issues/649
+set nobackup
+set nowritebackup
+
 " Ignore comments in JSON to be compatible with JSONC
 " Stolen from https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -88,6 +94,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Read question for usage context
 Plug 'ntpeters/vim-better-whitespace'
 " End vim-better-whitespace
+
+" Begin fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" End fzf
 
 call plug#end()
 
@@ -219,6 +229,41 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" TODO: Emacsify those bindings
 
+" diagnostics as in warnings/errors on the left side
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [G <Plug>(coc-diagnostic-prev-error)
+nmap <silent> ]G <Plug>(coc-diagnostic-next-error)
+
+" GoTo code navigation.
+nmap <silent> <M-g>d <Plug>(coc-definition)
+" TODO: Is an type definition where the type is deducted
+" (like int x;)
+" or the class/struct definition?
+nmap <silent> <M-g>t <Plug>(coc-type-definition)
+" TODO: Understanding what an implementation is
+nmap <silent> <C-c><C-f> <Plug>(coc-implementation)
+" TODO: Understanding what a reference is
+nmap <silent> <M-g>r <Plug>(coc-references)
+
+" Symbol renaming.
+nmap <C-c>r <Plug>(coc-rename)
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Find symbol of current document.
+nnoremap <silent><nowait> <C-f>s  :<C-u>CocList outline<cr>
 
 " End coc.nvim Configuration
