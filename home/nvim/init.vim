@@ -177,13 +177,6 @@ let g:rustfmt_autosave = 1
 
 " Begin coc.nvim Configuration
 
-" TODO: Add support for the following coc-plugins:
-"   - coc-markdownlint
-"   - coc-discord{,-rpc} (dunno yet which one)
-"   - coc-go (or is there any other more common tooling?)
-"   - coc-pyright (or coc-jedi?)
-"   - coc-vimtex (or texlab? (probably texlab))
-
 " coc wrapps lsp servers into coc extensions, in order to improve their
 " integration. This also helps since coc is written in node, therefore they
 " can just fork the vsc plugins
