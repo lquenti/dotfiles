@@ -179,8 +179,10 @@ alias pdftex='pdflatex document.tex'
 alias dispatch-conf='sudo dispatch-conf'
 alias gs='git status'
 alias godocs="godoc -http :8000"
+alias feh='feh --scale-down --image-bg "#1D1F21"'
+alias fehrand='feh --randomize'
 
-# Otherwise I wont learn it 
+# Otherwise I wont learn it
 function scrot() {
   # I need a function to throw away all arguments
   flameshot gui
