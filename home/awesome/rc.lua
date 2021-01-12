@@ -259,7 +259,7 @@ awful.screen.connect_for_each_screen(function(s)
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, 
+        s.mytasklist,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
@@ -281,7 +281,6 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    --TODO find new usage
     --awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
@@ -391,10 +390,10 @@ globalkeys = gears.table.join(
     -- Volume Keys
     awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
     awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
-    awful.key({}, "XF86AudioMute",        function() volumecfg:toggle() end)--,
+    awful.key({}, "XF86AudioMute",        function() volumecfg:toggle() end),
     -- Brightness Keys
-    --awful.key({ }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 5") end),
-    --awful.key({ }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 5") end)
+    awful.key({ }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 5") end),
+    awful.key({ }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 5") end)
 )
 
 clientkeys = gears.table.join(
@@ -546,7 +545,10 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
-
+	{ rule = { class = "Rambox" },
+	properties = { screen = 1, tag = "💬" } },
+	{ rule = { class = "Thunderbird" },
+	properties = { screen = 1, tag = "📧" } },
     -- Set Firefox to always map on the tag named "2" on screen 1.
      --{ rule = { class = "Firefox" },
        --properties = { screen = 1, tag = "Web" } },
@@ -628,3 +630,18 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- At the end, start a lot of commands I want to have running
+do
+	local cmds =
+	{
+		"nm-applet",
+		"thunderbird",
+		"rambox"
+	}
+
+	for _,i in pairs(cmds) do
+		awful.util.spawn(i)
+	end
+end
+
