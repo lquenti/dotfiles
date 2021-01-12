@@ -637,7 +637,8 @@ do
 	{
 		"nm-applet",
 		"thunderbird",
-		"rambox"
+		"rambox",
+		"xscreensaver -no-splash"
 	}
 
 	for _,i in pairs(cmds) do
