@@ -32,4 +32,5 @@ ColorBackground=#1df31f482147
 ColorPalette=rgb(40,42,46);rgb(242,152,153);rgb(95,251,95);rgb(239,240,92);rgb(157,199,233);rgb(255,128,255);rgb(164,241,231);rgb(112,120,128);rgb(211,213,217);rgb(242,152,153);rgb(95,251,95);rgb(239,240,92);rgb(157,199,233);rgb(255,128,255);rgb(164,241,231);rgb(255,255,255)
 ColorCursorForeground=#ffffffffffff
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ShortcutsNoHelpkey=TRUE
 
