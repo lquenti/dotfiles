@@ -114,8 +114,6 @@ alias free='free -m'
 alias cls='clear'
 alias cl='clear'
 alias ping='ping -c 5'
-alias youtube-dl="youtube-dl -i" # Ignore Errors
-alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
 alias calc='python -i -c "
 from math import *
 import numpy as np
@@ -158,6 +156,7 @@ alias eCl='emerge --depclean'
 alias eCls='emerge --depclean'
 alias eClean='emerge --depclean'
 
+alias :r="source ~/.zshrc"
 alias bashrc='echo "You are not using bash anymore ffs"'
 alias zshrc='$EDITOR ~/.zshrc'
 alias vimrc='$EDITOR ~/.vimrc'
@@ -181,6 +180,8 @@ alias gs='git status'
 alias godocs="godoc -http :8000"
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehrand='feh --randomize'
+alias de='setxkbmap de'
+alias us='setxkbmap us'
 
 # Otherwise I wont learn it
 function scrot() {
@@ -204,9 +205,9 @@ dirsize () {
 
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
-function cheat() {
-	curl cht.sh/$1
-}
+alias youtube-dl="youtube-dl --ignore-errors --yes-playlist"
+alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(thefuck --alias)
