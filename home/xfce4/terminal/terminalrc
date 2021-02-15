@@ -33,4 +33,5 @@ ColorPalette=rgb(40,42,46);rgb(242,152,153);rgb(95,251,95);rgb(239,240,92);rgb(1
 ColorCursorForeground=#ffffffffffff
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoHelpkey=TRUE
+ShortcutsNoMenukey=TRUE
 
