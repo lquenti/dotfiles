@@ -637,7 +637,7 @@ do
 	{
 		"nm-applet",
 		"thunderbird",
-		"rambox",
+		"ferdi",
 		"xscreensaver -no-splash",
 		"flameshot"
 	}
