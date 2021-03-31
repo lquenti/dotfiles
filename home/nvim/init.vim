@@ -99,6 +99,10 @@ Plug 'mhinz/vim-startify'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " End vim-prettier
 
+" Begin vim-code-dark
+Plug 'tomasiser/vim-code-dark'
+" End vim-code-dark
+
 " Begin vim-devicons
 "
 " NOTE: This has to be loaded last
@@ -108,9 +112,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'ryanoasis/vim-devicons' " Require nerdfont
 " End vim-devicons
 call plug#end()
-
-" Dim just uses ANSI colors therefore the config relies on the terminal
-colorscheme dim
+colorscheme codedark
 
 
 " Begin NerdTree Configuration
