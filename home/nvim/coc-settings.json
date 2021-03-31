@@ -1,3 +1,12 @@
 {
-	// coc-rust does not need any config yet
+	"coc.preferences.formatOnSaveFiletypes": [
+		// In order to use it with prettier
+		"javascript",
+		"typescript",
+		"typescriptreact",
+		"json",
+		"javascriptreact",
+		"typescript.tsx",
+		"graphql"
+	]
 }

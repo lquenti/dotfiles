@@ -75,10 +75,6 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 " End vim-closetag
 
-" Begin rust.vim
-Plug 'rust-lang/rust.vim'
-" End rust.vim
-
 " Begin Linuxsty (kernel style guide)
 Plug 'vivien/vim-linux-coding-style'
 " End Linuxsty
@@ -94,14 +90,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 " End vim-better-whitespace
 
-" Begin fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" End fzf
 
 " Begin vim-startify
 Plug 'mhinz/vim-startify'
 " End vim-startify
 
+" Begin vim-prettier
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" End vim-prettier
 
 " Begin vim-devicons
 "
@@ -166,14 +162,6 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 " end airline configuration
 
-" Begin rust.vim Configuration
-" Automatically run rustfmt when saved
-" (this is basically the only function used besides
-" the shorthand comments like
-" :Ccheck, Crun, ...
-" (See :help rust-commands)
-let g:rustfmt_autosave = 1
-" End rust.vim Configuration
 
 " Begin coc.nvim Configuration
 
@@ -197,79 +185,7 @@ let g:rustfmt_autosave = 1
 " One can also find all extensions with :CocList extensions
 " (the multiline comment syntax is defined unter :help line-continuation{,-comment}
 let g:coc_global_extensions = [
-	"\ coc-json is used for json validation
-	"\ See: https://github.com/neoclide/coc-json
-	\'coc-json',
-	"\ coc-rls is a rls wrapper, forked from rls-vscode,
-	"\ It expects the following packages to be installed
-	"\ rustup component add rls rust-analysis rust-src
-	"\ Further configuration is found unter nvim/coc-settings.json
-	\'coc-rls'
 	\]
-
-" Now, we have to bind everything.
-" See :help key-notation for the key names
-
-" Firstly, we have to rebind <cr> (Enter) in order to react to completion when
-" it is currently enabled
-"
-" inoremap replaces an mapping (:help inoremap)
-" I think it is needed here because we would otherwise have a recursive
-" definition.
-"
-" The <expr> part tells us, that the following is a complex expression instead
-" of just a key (:help :map-<expr>)
-"
-" pumvisible checks whether the completion menu is visible (:help pumvisible)
-"
-" The ?: is the ternary operator, if it is visible it <CR> confirms the
-" completion. If not it breaks the undo level and does a usual <CR>
-" (See: https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-cr-to-confirm-completion)
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use <TAB> and <S-Tab> (shift) to navigate the completion list.
-"
-" This one is simlilarly built and directly stolen from
-" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-tab-and-s-tab-to-navigate-the-completion-list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" TODO: Emacsify those bindings
-
-" diagnostics as in warnings/errors on the left side
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> [G <Plug>(coc-diagnostic-prev-error)
-nmap <silent> ]G <Plug>(coc-diagnostic-next-error)
-
-" GoTo code navigation.
-nmap <silent> <M-g>d <Plug>(coc-definition)
-" TODO: Is an type definition where the type is deducted
-" (like int x;)
-" or the class/struct definition?
-nmap <silent> <M-g>t <Plug>(coc-type-definition)
-" TODO: Understanding what an implementation is
-nmap <silent> <C-c><C-f> <Plug>(coc-implementation)
-" TODO: Understanding what a reference is
-nmap <silent> <M-g>r <Plug>(coc-references)
-
-" Symbol renaming.
-nmap <C-c>r <Plug>(coc-rename)
-
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Find symbol of current document.
-nnoremap <silent><nowait> <C-f>s  :<C-u>CocList outline<cr>
 
 " End coc.nvim Configuration
 
@@ -314,3 +230,10 @@ let g:startify_lists = [
 	\]
 
 " End vim-startify configuration
+
+" Begin vim-prettier configuration
+" Enable auto formatting of files that have "@format" or "@prettier" tag
+let g:prettier#autoformat = 1
+" Allow auto formatting for files without "@format" or "@prettier" tag
+let g:prettier#autoformat_require_pragma = 0
+" End vim-prettier configuration

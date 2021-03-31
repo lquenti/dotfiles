@@ -121,7 +121,6 @@ import sympy
 import sys
 sys.ps1 = \"λ> \"
 "'
-alias pi='ssh 192.168.0.161'
 alias dia='dia --integrated'
 alias cal='ncal'
 
