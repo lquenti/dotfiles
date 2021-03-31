@@ -185,7 +185,19 @@ let g:airline_symbols.linenr = ''
 " One can also find all extensions with :CocList extensions
 " (the multiline comment syntax is defined unter :help line-continuation{,-comment}
 let g:coc_global_extensions = [
+	\'coc-tsserver'
 	\]
+
+
+" This maps the Type Hinting.
+" <silent> means that it doesn't need to echo into the buffer
+" Binded to <C-x><C-h>
+nnoremap <silent> <C-x><C-h> :call CocAction('doHover')<CR>
+
+nmap <silent> <C-x><C-d> <Plug>(coc-definition)
+nmap <silent> <C-x><C-t> <Plug>(coc-type-definition)
+nmap <silent> <C-x><C-r> <Plug>(coc-references)
+
 
 " End coc.nvim Configuration
 
