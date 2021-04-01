@@ -176,7 +176,6 @@ alias nvim_install='nvim +PlugInstall +UpdateRemotePlugins +qa'
 alias pdftex='pdflatex document.tex'
 alias dispatch-conf='sudo dispatch-conf'
 alias gs='git status'
-alias godocs="godoc -http :8000"
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
 alias fehrand='feh --randomize'
@@ -214,6 +213,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
 #source ${HOME}/perl5/perlbrew/etc/bashrc
-
-export GOPATH=$HOME/Documents/Tech/go
-export PATH=$PATH:$GOPATH/bin
