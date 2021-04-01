@@ -95,10 +95,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-startify'
 " End vim-startify
 
-" Begin vim-prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" End vim-prettier
-
 " Begin vim-code-dark
 Plug 'tomasiser/vim-code-dark'
 " End vim-code-dark
@@ -188,7 +184,8 @@ let g:airline_symbols.linenr = ''
 " (the multiline comment syntax is defined unter :help line-continuation{,-comment}
 let g:coc_global_extensions = [
 	\'coc-tsserver',
-	\'coc-go'
+	\'coc-go',
+	\'coc-prettier'
 	\]
 
 
@@ -201,6 +198,8 @@ nmap <silent> <C-x><C-d> <Plug>(coc-definition)
 nmap <silent> <C-x><C-t> <Plug>(coc-type-definition)
 nmap <silent> <C-x><C-r> <Plug>(coc-references)
 
+" Actually define the ':Prettier' format
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " End coc.nvim Configuration
 
@@ -245,10 +244,3 @@ let g:startify_lists = [
 	\]
 
 " End vim-startify configuration
-
-" Begin vim-prettier configuration
-" Enable auto formatting of files that have "@format" or "@prettier" tag
-let g:prettier#autoformat = 1
-" Allow auto formatting for files without "@format" or "@prettier" tag
-let g:prettier#autoformat_require_pragma = 0
-" End vim-prettier configuration
