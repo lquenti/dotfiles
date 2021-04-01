@@ -187,7 +187,8 @@ let g:airline_symbols.linenr = ''
 " One can also find all extensions with :CocList extensions
 " (the multiline comment syntax is defined unter :help line-continuation{,-comment}
 let g:coc_global_extensions = [
-	\'coc-tsserver'
+	\'coc-tsserver',
+	\'coc-go'
 	\]
 
 
