@@ -145,6 +145,7 @@ alias aCl='sudo apt-get autoremove'
 alias aCls='sudo apt-get autoremove'
 alias aClean='sudo apt-get autoremove'
 
+alias dnf='sudo dnf'
 alias emerge='sudo emerge'
 alias search='emerge --search'
 alias Search='emerge -S'
