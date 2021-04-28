@@ -185,7 +185,9 @@ let g:airline_symbols.linenr = ''
 let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-go',
-	\'coc-prettier'
+	\'coc-prettier',
+	\'coc-pyright',
+	\'coc-clangd'
 	\]
 
 
