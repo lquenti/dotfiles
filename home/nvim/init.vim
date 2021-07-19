@@ -187,6 +187,7 @@ let g:coc_global_extensions = [
 	\'coc-go',
 	\'coc-prettier',
 	\'coc-pyright',
+	\'coc-rls',
 	\'coc-clangd'
 	\]
 
