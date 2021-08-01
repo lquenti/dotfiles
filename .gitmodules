@@ -1,8 +1,8 @@
-[submodule "wm/dwm"]
-	path = wm/dwm
-	url = git@github.com:lquenti/dwm.git
-	branch = master
 [submodule "DoTeX"]
 	path = DoTeX
 	url = git@github.com:lquenti/DoTeX.git
+	branch = master
+[submodule "dwm"]
+	path = dwm
+	url = git@github.com:lquenti/dwm.git
 	branch = master
