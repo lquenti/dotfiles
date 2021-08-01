@@ -1,0 +1,4 @@
+[submodule "wm/dwm"]
+	path = wm/dwm
+	url = git@github.com:lquenti/dwm.git
+	branch = master
