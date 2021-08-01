@@ -8,6 +8,9 @@ set conceallevel=0
 " Somehow, this isn't enough for LaTeX therefore
 let g:tex_conceal = ''
 
+" 120 chars are probably a sensible limit
+set colorcolumn=120
+
 " https://medium.com/usevim/vim-101-set-hidden-f78800142855
 " (can also cause a soft block with coc.nvim, see https://medium.com/usevim/vim-101-set-hidden-f78800142855 )
 set hidden
