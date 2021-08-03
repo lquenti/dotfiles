@@ -238,7 +238,8 @@ let g:startify_custom_header = 'startify#center(g:ascii) + startify#center(start
 let g:startify_bookmarks = [
 	\'~/.config/nvim/init.vim',
 	\'~/.zshrc',
-	\'~/.config/awesome/rc.lua'
+	\'~/.config/awesome/rc.lua',
+	\'~/Documents/TODO/TODO.md'
 	\]
 
 " (see g:startify_lists)
@@ -246,7 +247,7 @@ let g:startify_bookmarks = [
 " :h startify-mappings
 let g:startify_lists = [
 	\ {'type': 'files', 'header': ['   > Most recently used files']},
-	\ {'type': 'bookmarks', 'header': ['   🔖 Bookmarks'], 'indices': ['a', 's', 'd']},
+	\ {'type': 'bookmarks', 'header': ['   🔖 Bookmarks'], 'indices': ['a', 's', 'd', 'f']},
 	\]
 
 " End vim-startify configuration
