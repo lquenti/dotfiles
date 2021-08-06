@@ -170,6 +170,7 @@ alias qtilerc='$EDITOR ~/.config/qtile/config.py'
 alias termrc='$EDITOR ~/.config/xfce4/terminal/terminalrc'
 alias terminalrc=termrc
 alias xfcerc=termrc
+alias todo='$EDITOR ~/Documents/TODO/TODO.md'
 alias irc='weechat'
 alias matrix='weechat'
 alias vim='nvim'
