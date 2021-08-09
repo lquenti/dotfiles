@@ -239,7 +239,7 @@ let g:startify_bookmarks = [
 	\'~/.config/nvim/init.vim',
 	\'~/.zshrc',
 	\'~/.config/awesome/rc.lua',
-	\'~/Documents/TODO/TODO.md'
+	\'~/Documents/TODO/my_todo/TODO.md'
 	\]
 
 " (see g:startify_lists)
