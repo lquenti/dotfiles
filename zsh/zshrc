@@ -187,6 +187,9 @@ alias us='setxkbmap us'
 # Based on: https://github.com/azu/license-generator
 alias MIT="license-generator MIT --author 'Lars Quentin' --output /dev/stdout"
 
+# Based on: https://github.com/carloscuesta/gitmoji-cli
+alias gc="gitmoji -c"
+
 # Otherwise I wont learn it
 function scrot() {
   # I need a function to throw away all arguments
