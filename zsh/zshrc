@@ -201,6 +201,9 @@ alias xclip='xclip -selection c'
 
 alias weather='curl wttr.in/Göttingen'
 
+alias gnext="git checkout HEAD@{1}"
+alias gprev="git checkout HEAD^1"
+
 top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head; }
 
 dirsize () {
