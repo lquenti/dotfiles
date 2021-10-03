@@ -20,3 +20,6 @@
 
 ;; TODO: Add linum-relative for absolute relative line numbers
 (global-display-line-numbers-mode)
+
+;; Show where to aggregate my agenda from
+(setq org-agenda-files '("~/Documents/org/todo.org"))
