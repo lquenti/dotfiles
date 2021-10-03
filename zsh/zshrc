@@ -184,7 +184,7 @@ alias fehrand='feh --randomize'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
 
-alias nvim='echo "use emacs"'
+alias nvim='echo "use emacs to open:"'
 
 # Based on: https://github.com/azu/license-generator
 alias MIT="license-generator MIT --author 'Lars Quentin' --output /dev/stdout"
