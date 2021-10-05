@@ -12,7 +12,7 @@
 
 ;; Frame title
 ;; TODO: What is the first empty string for
-(setq frame-title-format '("" "emacs :: %b -> screen"))
+(setq frame-title-format '("" "emacs - Creating RSI's since 1976"))
 
 ;; Don't trash everything with autosaves
 ;; TODO: Again, what is the noise
