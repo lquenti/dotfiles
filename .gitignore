@@ -1,2 +1,5 @@
 # Are automatically generated when installing
 nvim/nvim/plugged
+
+
+emacs.d/auto-save-list
