@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 EDITOR="nvim"
+BROWSER="brave-browser"
 
 PATH=~/.cargo/bin/:~/.local/bin:$PATH
 
@@ -184,6 +185,9 @@ alias fehrand='feh --randomize'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
 alias searchrec="grep -nr"
+alias pullsub="git submodule update --remote --merge"
+alias pullall="git pull && pullsub"
+alias b="${BROWSER}"
 
 # Based on: https://github.com/azu/license-generator
 alias MIT="license-generator MIT --author 'Lars Quentin' --output /dev/stdout"
