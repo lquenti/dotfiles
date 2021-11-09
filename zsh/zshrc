@@ -61,6 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git
   fzf-tab # Needs to manually be installed
+  zsh-z # As well...
 )
 
 source $ZSH/oh-my-zsh.sh
