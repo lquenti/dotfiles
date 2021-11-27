@@ -3,6 +3,7 @@
 set nu
 set rnu
 
+
 " Disable autohiding of quotes in json
 set conceallevel=0
 " Somehow, this isn't enough for LaTeX therefore
@@ -42,6 +43,14 @@ set linebreak
 " filetype plugin on
 "   - loads filetype specific plugins
 filetype plugin indent on
+" I want TAB to 2 spaces for now
+" On pressing tab, insert 2 spaces
+set expandtab
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
 
 " Disable visual beep
 set t_vb=0
@@ -78,10 +87,6 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 " End vim-closetag
 
-" Begin Linuxsty (kernel style guide)
-Plug 'vivien/vim-linux-coding-style'
-" End Linuxsty
-
 " Begin coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " End coc.nvim
@@ -92,7 +97,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Read question for usage context
 Plug 'ntpeters/vim-better-whitespace'
 " End vim-better-whitespace
-
 
 " Begin vim-startify
 Plug 'mhinz/vim-startify'
@@ -188,7 +192,6 @@ let g:airline_symbols.linenr = ''
 let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-go',
-	\'coc-prettier',
 	\'coc-pyright',
 	\'coc-rls',
 	\'coc-clangd'
@@ -203,9 +206,6 @@ nnoremap <silent> <C-x><C-h> :call CocAction('doHover')<CR>
 nmap <silent> <C-x><C-d> <Plug>(coc-definition)
 nmap <silent> <C-x><C-t> <Plug>(coc-type-definition)
 nmap <silent> <C-x><C-r> <Plug>(coc-references)
-
-" Actually define the ':Prettier' format
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " End coc.nvim Configuration
 
