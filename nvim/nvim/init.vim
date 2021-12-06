@@ -207,6 +207,12 @@ nmap <silent> <C-x><C-d> <Plug>(coc-definition)
 nmap <silent> <C-x><C-t> <Plug>(coc-type-definition)
 nmap <silent> <C-x><C-r> <Plug>(coc-references)
 
+
+" Go to next error
+nmap <silent> <C-n> <Plug>(coc-diagnostic-next-error)
+" TODO: Find a good unused binding for going back
+" nmap <silent> <C-N> <Plug>(coc-diagnostic-prev-error)
+
 " End coc.nvim Configuration
 
 " Begin vim-startify configuration
