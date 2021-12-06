@@ -213,6 +213,24 @@ nmap <silent> <C-n> <Plug>(coc-diagnostic-next-error)
 " TODO: Find a good unused binding for going back
 " nmap <silent> <C-N> <Plug>(coc-diagnostic-prev-error)
 
+" God, this one is pretty stupid.
+"
+" I sometimes (especiallly currently at work) have some
+" big monorepos for a single research project.
+"
+" pyright (in VSC) uses the concept of workspace folders
+" to understand where the document root is.
+"
+" (n)vim does not have this feature. Thus they use special files
+" to detect the equivalent.
+"
+" See: https://github.com/fannheyward/coc-pyright/issues/64
+" See: https://github.com/neoclide/coc.nvim/wiki/Using-workspaceFolders
+"
+" So in order to fix that we create some 'special file' that shows
+" that this is the root with an higher priority than the .git
+autocmd FileType python let b:coc_root_patterns = ['.pythonroot', '.git', '.env']
+
 " End coc.nvim Configuration
 
 " Begin vim-startify configuration
