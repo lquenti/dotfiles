@@ -61,7 +61,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git
   fzf-tab # Needs to manually be installed
-  zsh-z # As well...
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -245,3 +244,4 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
 
 eval $(thefuck --alias)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
