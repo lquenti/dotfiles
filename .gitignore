@@ -1,7 +1,2 @@
-# Are automatically generated when installing
+# vim-plug aequivalent to node-modules
 nvim/nvim/plugged
-
-
-emacs.d/auto-save-list
-emacs.d/elpa
-emacs.d/games
