@@ -36,6 +36,7 @@ alias :r="source ~/.zshrc"
 alias bashrc='$EDITOR ~/.zshrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
+alias todo="$EDITOR ~/ownCloud/docs/org/todo.md"
 alias vim='nvim'
 alias gs='git status'
 alias de='setxkbmap de'
