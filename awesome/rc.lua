@@ -585,7 +585,8 @@ do
   local cmds =
   {
     "nm-applet",
-    "owncloud"
+    "owncloud",
+    "flameshot"
   }
 
   for _,i in pairs(cmds) do
