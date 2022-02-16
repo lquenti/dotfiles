@@ -586,7 +586,8 @@ do
   {
     "nm-applet",
     "owncloud",
-    "flameshot"
+    "flameshot",
+    "xscreensaver -no-splash"
   }
 
   for _,i in pairs(cmds) do
