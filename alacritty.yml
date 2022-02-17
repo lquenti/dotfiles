@@ -11,7 +11,7 @@ font:
   bold_italic:
     family: Iosevka Term
     style: Bold Italic
-  size: 10.0
+  size: 8
   offset:
     x: 0
     y: 1
