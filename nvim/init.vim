@@ -3,6 +3,12 @@
 set nu
 set rnu
 
+" Workaround for syntax highlighting with .tsx
+" (Thanks sliminality https://github.com/leafgarland/typescript-vim/issues/158 )
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
 
 " Disable autohiding of quotes in json
 set conceallevel=0
