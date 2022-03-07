@@ -113,6 +113,13 @@ Plug 'tomasiser/vim-code-dark'
 " NERDTree | vim-airline | CtrlP | powerline | Denite | unite | lightline.vim | vim-startify | vimfiler | flagship
 Plug 'ryanoasis/vim-devicons' " Require nerdfont
 " End vim-devicons
+
+" Begin vim-jsx-typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+" End vim-jsx-typescript
+
+
 call plug#end()
 colorscheme codedark
 
@@ -208,9 +215,8 @@ nmap <silent> <C-x><C-r> <Plug>(coc-references)
 
 
 " Go to next error
-nmap <silent> <C-n> <Plug>(coc-diagnostic-next-error)
-" TODO: Find a good unused binding for going back
-" nmap <silent> <C-N> <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <C-x><C-n> <Plug>(CocList diagnostics)
+nnoremap <silent> <C-x><C-n> :<C-u>CocList diagnostics<cr>
 
 " God, this one is pretty stupid.
 "
@@ -274,3 +280,8 @@ let g:startify_lists = [
 	\]
 
 " End vim-startify configuration
+
+" Begin vim-jsx-typescript configuration
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" End vim-jsx-typescript configuration
