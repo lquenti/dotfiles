@@ -588,7 +588,8 @@ do
     "nm-applet",
     "owncloud",
     "flameshot",
-    "xscreensaver -no-splash"
+    "xscreensaver -no-splash",
+    "thunderbird"
   }
 
   for _,i in pairs(cmds) do
