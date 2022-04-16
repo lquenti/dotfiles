@@ -119,6 +119,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 " End vim-jsx-typescript
 
+" Begin distraction free
+Plug 'junegunn/goyo.vim'
+" End distraction free
+
 
 call plug#end()
 colorscheme codedark
