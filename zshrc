@@ -36,12 +36,18 @@ alias :r="source ~/.zshrc"
 alias bashrc='$EDITOR ~/.zshrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
-alias todo="$EDITOR ~/ownCloud/docs/org/todo.md"
 alias vim='nvim'
 alias gs='git status'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
+# I want to learn how to use the thinkpoint
+alias hardmode='xinput --disable 12'
+alias easymode='xinput --enable 12'
 alias b="${BROWSER}"
+
+alias feh='feh --scale-down --image-bg "#1D1F21"'
+alias fehnew='feh -S mtime'
+alias fehrand='feh --randomize'
 
 # Based on: https://github.com/azu/license-generator
 alias MIT="license-generator MIT --author 'Lars Quentin' --output /dev/stdout"
@@ -76,3 +82,4 @@ function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
