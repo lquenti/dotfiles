@@ -590,7 +590,8 @@ do
     "owncloud",
     "flameshot",
     "xscreensaver -no-splash",
-    "thunderbird"
+    "thunderbird",
+    "discord"
   }
 
   for _,i in pairs(cmds) do
