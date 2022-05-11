@@ -64,6 +64,13 @@ syntax enable
 " Escape temrminal with C-x<ESC> (more layout friendly)
 tnoremap <C-x><Esc> <C-\><C-n>
 
+" Automatically resize splits after window size change
+" https://coderwall.com/p/it8wka/vim-resplit-after-window-size-change
+augroup Misc
+    autocmd!
+    autocmd VimResized * exe "normal! \<c-w>="
+augroup END
+
 " End general configuration
 
 call plug#begin()
