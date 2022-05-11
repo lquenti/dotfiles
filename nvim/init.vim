@@ -61,6 +61,9 @@ set cursorline
 " Needed for rust.vim to be explicitly enabled
 syntax enable
 
+" Escape temrminal with C-x<ESC> (more layout friendly)
+tnoremap <C-x><Esc> <C-\><C-n>
+
 " End general configuration
 
 call plug#begin()
