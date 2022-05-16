@@ -591,7 +591,7 @@ do
     "flameshot",
     "xscreensaver -no-splash",
     "thunderbird",
-    "discord"
+    "ferdi"
   }
 
   for _,i in pairs(cmds) do
