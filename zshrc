@@ -49,6 +49,9 @@ alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
 alias fehrand='feh --randomize'
 
+# I always forget how the python3 version looks like Q_Q
+alias webserver="python3 -m http.server"
+
 # Based on: https://github.com/azu/license-generator
 alias MIT="license-generator MIT --author 'Lars Quentin' --output /dev/stdout"
 
