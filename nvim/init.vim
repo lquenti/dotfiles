@@ -133,10 +133,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'junegunn/goyo.vim'
 " End distraction free
 
-" Begin vim side annotation
-Plug 'vim-scripts/vim-gitgutter'
-" End vim side annotation
-
 call plug#end()
 colorscheme codedark
 
