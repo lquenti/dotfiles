@@ -95,6 +95,9 @@ alias gc="gitmoji -c"
 alias xclip='xclip -selection c'
 alias weather='curl wttr.in/Göttingen'
 
+# Thanks, https://write.corbpie.com/downloading-youtube-videos-as-audio-with-yt-dlp/
+alias yt-mp3="yt-dlp -f 'ba' -x --audio-format mp3"
+
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
