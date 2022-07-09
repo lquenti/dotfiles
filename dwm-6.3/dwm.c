@@ -219,6 +219,7 @@ static void resizemouse(const Arg *arg);
 static void resizerequest(XEvent *e);
 static void restack(Monitor *m);
 static void run(void);
+static void autostart();
 static void scan(void);
 static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
 static void sendmon(Client *c, Monitor *m);
@@ -1556,6 +1557,17 @@ run(void)
 }
 
 void
+autostart(void)
+{
+  for (char **p = autostart_programs; *p; ++p) {
+    char background[] = "%s &";
+    char command[128];
+    sprintf(command, background, *p);
+    system(command);
+  }
+}
+
+void
 scan(void)
 {
 	unsigned int i, num;
@@ -2506,6 +2518,7 @@ main(int argc, char *argv[])
 	if (pledge("stdio rpath proc exec", NULL) == -1)
 		die("pledge");
 #endif /* __OpenBSD__ */
+  autostart();
 	scan();
 	run();
 	cleanup();
