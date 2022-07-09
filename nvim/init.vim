@@ -133,6 +133,11 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'junegunn/goyo.vim'
 " End distraction free
 
+" Begin coloured brackets
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
+" End coloured brackets
+
 call plug#end()
 colorscheme codedark
 
