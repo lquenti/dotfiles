@@ -24,7 +24,14 @@ static const char *colors[][3]      = {
 };
 
 /* autostart programs */
-static const char *autostart_programs[] = { "nm-applet", "setxkbmap de", "flameshot", "discord", 0 };
+static const char *autostart_programs[] = {
+  "nm-applet",
+  "setxkbmap de",
+  "flameshot",
+  "discord",
+  0,
+  "/home/lquenti/code/dotfiles/dwm-bar/dwm_bar.sh"
+};
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
