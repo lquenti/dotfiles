@@ -25,13 +25,13 @@ export SEP2="]"
 #. "$DIR/bar-functions/dwm_alarm.sh"
 #. "$DIR/bar-functions/dwm_alsa.sh"
 #. "$DIR/bar-functions/dwm_backlight.sh"
-#. "$DIR/bar-functions/dwm_battery.sh"
+. "$DIR/bar-functions/dwm_battery.sh"
 #. "$DIR/bar-functions/dwm_ccurse.sh"
 #. "$DIR/bar-functions/dwm_cmus.sh"
 #. "$DIR/bar-functions/dwm_connman.sh"
 #. "$DIR/bar-functions/dwm_countdown.sh"
 #. "$DIR/bar-functions/dwm_currency.sh"
-#. "$DIR/bar-functions/dwm_date.sh"
+. "$DIR/bar-functions/dwm_date.sh"
 #. "$DIR/bar-functions/dwm_keyboard.sh"
 #. "$DIR/bar-functions/dwm_loadavg.sh"
 #. "$DIR/bar-functions/dwm_mail.sh"
@@ -63,13 +63,13 @@ do
     #upperbar="$upperbar$(dwm_alarm)"
     #upperbar="$upperbar$(dwm_alsa)"
     #upperbar="$upperbar$(dwm_backlight)"
-    #upperbar="$upperbar$(dwm_battery)"
+    upperbar="$upperbar$(dwm_battery)"
     #upperbar="$upperbar$(dwm_ccurse)"
     #upperbar="$upperbar$(dwm_cmus)"
     #upperbar="$upperbar$(dwm_connman)"
     #upperbar="$upperbar$(dwm_countdown)"
     #upperbar="$upperbar$(dwm_currency)"
-    #upperbar="$upperbar$(dwm_date)"
+    upperbar="$upperbar$(dwm_date)"
     #upperbar="$upperbar$(dwm_keyboard)"
     #upperbar="$upperbar$(dwm_loadavg)"
     #upperbar="$upperbar$(dwm_mail)"
@@ -81,12 +81,12 @@ do
     #upperbar="$upperbar$(dwm_vpn)"
     #upperbar="$upperbar${__DWM_BAR_NETWORKMANAGER__}"
     #upperbar="$upperbar${__DWM_BAR_WEATHER__}"
-   
+
     # Append results of each func one by one to the lowerbar string
     lowerbar=""
-    
+
     xsetroot -name "$upperbar"
-    # Uncomment the line below to enable the lowerbar 
+    # Uncomment the line below to enable the lowerbar
     #xsetroot -name "$upperbar;$lowerbar"
     sleep 1
 done
