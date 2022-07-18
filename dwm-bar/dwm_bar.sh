@@ -53,7 +53,7 @@ parallelize() {
         sleep 5
     done
 }
-parallelize &
+#parallelize &
 
 # Update dwm status bar every second
 while true

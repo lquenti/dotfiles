@@ -138,6 +138,10 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 " End coloured brackets
 
+" Begin vim git
+Plug 'tpope/vim-fugitive'
+" End vim git
+
 call plug#end()
 colorscheme codedark
 
