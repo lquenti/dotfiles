@@ -31,6 +31,7 @@ static const char *autostart_programs[] = {
   "discord",
   "/home/lquenti/code/dotfiles/dwm-bar/dwm_bar.sh",
   "xscreensaver --no-splash",
+  "owncloud",
   0,
 };
 
