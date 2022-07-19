@@ -29,8 +29,9 @@ static const char *autostart_programs[] = {
   "setxkbmap de",
   "flameshot",
   "discord",
+  "/home/lquenti/code/dotfiles/dwm-bar/dwm_bar.sh",
+  "xscreensaver --no-splash",
   0,
-  "/home/lquenti/code/dotfiles/dwm-bar/dwm_bar.sh"
 };
 
 /* tagging */
