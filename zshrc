@@ -98,6 +98,8 @@ alias weather='curl wttr.in/Göttingen'
 # Thanks, https://write.corbpie.com/downloading-youtube-videos-as-audio-with-yt-dlp/
 alias yt-mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
+alias ba="python3 ~/code/mdtrack/main.py ~/ba_tracking.md"
+
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -108,3 +110,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
