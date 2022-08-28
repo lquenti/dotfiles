@@ -89,8 +89,6 @@ Cargo.lock
 
 alias rustignore="echo '$RUST_IGNORE'"
 
-# Based on: https://github.com/carloscuesta/gitmoji-cli
-alias gc="gitmoji -c"
 # https://stackoverflow.com/a/4208191/9958281
 alias xclip='xclip -selection c'
 alias weather='curl wttr.in/Göttingen'
