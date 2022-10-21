@@ -3,6 +3,9 @@
 set nu
 set rnu
 
+" Set search case insensitive by default
+set ignorecase
+
 " Disable autohiding of quotes in json
 set conceallevel=0
 " Somehow, this isn't enough for LaTeX therefore
