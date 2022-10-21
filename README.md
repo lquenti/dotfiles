@@ -1,6 +1,5 @@
-# Licenses
+# My dotfiles
 
-- dwm is licensed as MIT/X
-- dwm-bar is GPL 3.0
-- Iosevka is SIL Open Font License 1.1
-- everything else written by me is public domain (The Unlicense) if the other licenses permit
+I wanna try to keep it as minimal as possible to remove friction. I should write something about the underlying philosophy here.
+
+I should also write the coolest bangers of my setup. For now, look at the `cd` function in my zshrc
