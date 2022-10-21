@@ -15,12 +15,6 @@ set colorcolumn=120
 " (can also cause a soft block with coc.nvim, see https://medium.com/usevim/vim-101-set-hidden-f78800142855 )
 set hidden
 
-" According to coc.nvim some language servers have issues with backup files,
-" therefore
-" See: https://github.com/neoclide/coc.nvim/issues/649
-set nobackup
-set nowritebackup
-
 " Ignore comments in JSON to be compatible with JSONC
 " Stolen from https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -65,7 +59,7 @@ syntax enable
 tnoremap <C-x><Esc> <C-\><C-n>
 
 " Automatically resize splits after window size change
-" https://coderwall.com/p/it8wka/vim-resplit-after-window-size-change
+" https://coderwall.com/p/it7wka/vim-resplit-after-window-size-change
 augroup Misc
     autocmd!
     autocmd VimResized * exe "normal! \<c-w>="
@@ -96,10 +90,6 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 " End vim-closetag
 
-" Begin coc.nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" End coc.nvim
-
 " Begin vim-better-whitespace
 "
 " Found here: https://stackoverflow.com/a/47048068/9958281
@@ -107,27 +97,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 " End vim-better-whitespace
 
-" Begin vim-startify
-Plug 'mhinz/vim-startify'
-" End vim-startify
-
 " Begin vim-code-dark
 Plug 'tomasiser/vim-code-dark'
 " End vim-code-dark
-
-" Begin vim-devicons
-"
-" NOTE: This has to be loaded last
-" From the wiki
-" Set VimDevIcons to load after these plugins!
-" NERDTree | vim-airline | CtrlP | powerline | Denite | unite | lightline.vim | vim-startify | vimfiler | flagship
-Plug 'ryanoasis/vim-devicons' " Require nerdfont
-" End vim-devicons
-
-" Begin vim-jsx-typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-" End vim-jsx-typescript
 
 " Begin distraction free
 Plug 'junegunn/goyo.vim'
@@ -137,11 +109,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 " End coloured brackets
-
-" Begin vim git
-Plug 'tpope/vim-fugitive'
-" End vim git
-
 call plug#end()
 colorscheme codedark
 
@@ -194,113 +161,3 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 " end airline configuration
-
-
-" Begin coc.nvim Configuration
-
-" coc wrapps lsp servers into coc extensions, in order to improve their
-" integration. This also helps since coc is written in node, therefore they
-" can just fork the vsc plugins
-
-" Usually, the extensions are installed with
-" :CocInstall coc-json
-" (or if you are using the terminal with -c for command)
-" nvim -c 'CocInstall -sync coc-json'
-
-" In order to ensure that all extensions are available on a new machine, coc
-" allows global extensions to be defined. I quote the wiki:
-"
-" Note you can add extension names to the g:coc_global_extensions variable, and
-" coc will install the missing extensions after coc.nvim service started.
-"
-" (See: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#install-extensions)
-
-" One can also find all extensions with :CocList extensions
-" (the multiline comment syntax is defined unter :help line-continuation{,-comment}
-let g:coc_global_extensions = [
-	\'coc-pyright',
-	\'coc-rls'
-	\]
-
-
-" This maps the Type Hinting.
-" <silent> means that it doesn't need to echo into the buffer
-" Binded to <C-x><C-h>
-nnoremap <silent> <C-x><C-h> :call CocAction('doHover')<CR>
-
-nmap <silent> <C-x><C-d> <Plug>(coc-definition)
-nmap <silent> <C-x><C-t> <Plug>(coc-type-definition)
-nmap <silent> <C-x><C-r> <Plug>(coc-references)
-
-
-" Go to next error
-nmap <silent> <C-x><C-n> <Plug>(CocList diagnostics)
-nnoremap <silent> <C-x><C-n> :<C-u>CocList diagnostics<cr>
-
-" God, this one is pretty stupid.
-"
-" I sometimes (especiallly currently at work) have some
-" big monorepos for a single research project.
-"
-" pyright (in VSC) uses the concept of workspace folders
-" to understand where the document root is.
-"
-" (n)vim does not have this feature. Thus they use special files
-" to detect the equivalent.
-"
-" See: https://github.com/fannheyward/coc-pyright/issues/64
-" See: https://github.com/neoclide/coc.nvim/wiki/Using-workspaceFolders
-"
-" So in order to fix that we create some 'special file' that shows
-" that this is the root with an higher priority than the .git
-autocmd FileType python let b:coc_root_patterns = ['.pythonroot', '.git', '.env']
-
-" End coc.nvim Configuration
-
-" Begin vim-startify configuration
-
-" Use webdevicons with startify
-let g:webdevicons_enable_startify = 1
-
-" Set cool header
-let g:ascii = [
-	\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣤⣴⣦⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
-	\'⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⠿⠿⠿⠿⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀',
-	\'⠀⠀⠀⠀⣠⣾⣿⣿⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣶⡀⠀⠀⠀⠀',
-	\'⠀⠀⠀⣴⣿⣿⠟⠁⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣦⠀⠀⠀',
-	\'⠀⠀⣼⣿⣿⠋⠀⠀⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣧⠀⠀',
-	\'⠀⢸⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⠀',
-	\'⠀⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀',
-	\'⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿⠀',
-	\'⠀⣿⣿⣷⠀⠀⠀⠀⠀⠀⣰⣿⣿⠏⠀⠀⢻⣿⣿⡄⠀⠀⠀⠀⠀⠀⣿⣿⡿⠀',
-	\'⠀⢸⣿⣿⡆⠀⠀⠀⠀⣴⣿⡿⠃⠀⠀⠀⠈⢿⣿⣷⣤⣤⡆⠀⠀⣰⣿⣿⠇⠀',
-	\'⠀⠀⢻⣿⣿⣄⠀⠀⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛⠀⣰⣿⣿⡟⠀⠀',
-	\'⠀⠀⠀⠻⣿⣿⣧⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⠏⠀⠀⠀',
-	\'⠀⠀⠀⠀⠈⠻⣿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⠟⠁⠀⠀⠀⠀',
-	\'⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀',
-	\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠛⠛⠛⠛⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
-        \]
-let g:startify_custom_header = 'startify#center(g:ascii) + startify#center(startify#fortune#boxed())'
-
-" Bookmarks
-let g:startify_bookmarks = [
-	\'~/.config/nvim/init.vim',
-	\'~/.zshrc',
-	\'~/.config/awesome/rc.lua',
-	\'~/ownCloud/docs/org/todo.md'
-	\]
-
-" (see g:startify_lists)
-" NOTE: as for the indices, do not use keys also used by
-" :h startify-mappings
-let g:startify_lists = [
-	\ {'type': 'files', 'header': ['   > Most recently used files']},
-	\ {'type': 'bookmarks', 'header': ['   🔖 Bookmarks'], 'indices': ['a', 's', 'd', 'f']},
-	\]
-
-" End vim-startify configuration
-
-" Begin vim-jsx-typescript configuration
-" set filetypes as typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-" End vim-jsx-typescript configuration
