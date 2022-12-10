@@ -28,6 +28,11 @@ BROWSER="firefox"
 
 PATH=~/.cargo/bin/:~/.local/bin:$PATH
 
+alias ga='git add'
+alias gc='git commit'
+alias gd='git diff'
+alias gs='git status'
+
 alias ls='ls --color=auto'
 alias ll='ls -lahF'
 alias dir='dir --color=auto'
@@ -93,3 +98,5 @@ function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 [ -r /home/lquenti/.byobu/prompt ] && . /home/lquenti/.byobu/prompt   #byobu-prompt#
 . "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
