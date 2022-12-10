@@ -32,6 +32,8 @@ alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'
 alias gs='git status'
+alias gp='git push'
+alias gpu='git pull'
 
 alias ls='ls --color=auto'
 alias ll='ls -lahF'
