@@ -48,7 +48,7 @@ alias sl='ls'
 
 alias :r="source ~/.bashrc"
 alias bashrc='$EDITOR ~/.bashrc'
-alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
+alias nvimrc='$EDITOR ~/.config/nvim/init.lua'
 alias vim='nvim'
 alias gs='git status'
 alias de='setxkbmap de'
@@ -102,3 +102,7 @@ function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
