@@ -1,0 +1,4 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "716b6cc2b58e71c504c5bb550f7088b9a59eca43" },
+  "vim-better-whitespace": { "branch": "master", "commit": "1b22dc57a2751c7afbc6025a7da39b7c22db635d" }
+}
