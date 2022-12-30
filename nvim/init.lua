@@ -3,7 +3,7 @@
 -- - [ ] Copilot
 -- - [ ] Split into functions
 -- - [ ] Generate docstrings via Copilot
--- - [ ] Try to add Lua linter in CI
+-- - [ ] Try new color theme
 -- - [ ] tnoremap <C-x><Esc> <C-\><C-n>
 -- " Automatically resize splits after window size change
 -- " https://coderwall.com/p/it7wka/vim-resplit-after-window-size-change
@@ -27,9 +27,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 local plugins = {
+  'ntpeters/vim-better-whitespace',
   {
-    'ntpeters/vim-better-whitespace'
+    'scrooloose/nerdtree',
+    init = function()
+      vim.cmd("nnoremap <silent> <C-x><C-f> :NERDTreeToggle<CR>")
+      vim.cmd("let NERDTreeQuitOnOpen = 1")
+    end
+  },
+  {
+    'tomasiser/vim-code-dark',
+    config = function()
+      vim.cmd("colorscheme codedark")
+    end
   }
 }
 require("lazy").setup(plugins)
