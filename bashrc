@@ -51,6 +51,7 @@ alias bashrc='$EDITOR ~/.bashrc'
 alias nvimrc='$EDITOR ~/.config/nvim/init.lua'
 alias vim='nvim'
 alias gs='git status'
+alias glo='git log --oneline'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
 
