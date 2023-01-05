@@ -32,7 +32,8 @@ function setup_lazy()
         vim.cmd("colorscheme codedark")
       end
     },
-    "github/copilot.vim"
+    "github/copilot.vim",
+    "neovim/nvim-lspconfig"
   }
   require("lazy").setup(plugins)
 end
@@ -67,3 +68,10 @@ end
 
 settings()
 setup_lazy()
+
+require'lspconfig'.rust_analyzer.setup{}
+
+local bufopts = { noremap=true, silent=true, buffer=bufnr }
+vim.keymap.set('n', "<C-x><C-D>", vim.lsp.buf.declaration, bufopts)
+vim.keymap.set('n', "<C-x><C-d>", vim.lsp.buf.definition, bufopts)
+vim.keymap.set('n', "<C-x><C-i>", vim.lsp.buf.implementation, bufopts)
