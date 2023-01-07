@@ -56,7 +56,6 @@ alias de='setxkbmap de'
 alias us='setxkbmap us'
 
 alias b="${BROWSER}"
-alias c="code"
 alias g="lazygit"
 
 alias feh='feh --scale-down --image-bg "#1D1F21"'
