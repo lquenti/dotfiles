@@ -33,7 +33,11 @@ function setup_lazy()
       end
     },
     "github/copilot.vim",
-    "neovim/nvim-lspconfig"
+    "neovim/nvim-lspconfig",
+    {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate"
+    },
   }
   require("lazy").setup(plugins)
 end
