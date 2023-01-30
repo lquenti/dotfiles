@@ -62,6 +62,8 @@ alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
 alias fehrand='feh --randomize'
 
+alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm alpine/dfimage"
+
 # I always forget how the python3 version looks like Q_Q
 alias webserver="python3 -m http.server"
 
