@@ -31,6 +31,7 @@ PATH=/usr/local/go/bin:~/.cargo/bin/:~/.local/bin:~/.local/share/gem/ruby/3.0.0/
 alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gs='git status'
 alias gp='git push'
 alias gpu='git pull'
