@@ -58,6 +58,8 @@ alias us='setxkbmap us'
 
 alias b="${BROWSER}"
 alias g="lazygit"
+# fuck is too long
+alias f="sudo !!"
 
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
