@@ -1,7 +1,7 @@
 # scripts when starting i3
 
 # Keyboard layout stuff
-setxkbmap -layout us -variant intl
+setxkbmap us
 setxkbmap -option caps:escape
 
 
