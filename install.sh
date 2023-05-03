@@ -1,7 +1,6 @@
 # Install script TODOs
 # - [ ] Install fzf
-# - [ ] apt packages
-#   - [ ] flameshot
+# - [x] apt packages
 # - [x] Install ruststuff
 #   - [x] Rustup
 #   - [x] ripgrep
@@ -10,12 +9,17 @@
 #   - [x] tokei
 #   - [x] license-generator
 #   - [x] cargo update
+#   - [ ] bottom
 # - [ ] Install font
 # - [ ] install newest nvim
 # - [ ] link nvim dotties
 # - [ ] link alacritty config
+#   - [ ] install alacritty
 # - [ ] link bashrc
 # - [ ] link i3 config
+#   - [ ] install i3
+# - [ ] install lazygit
+# - [ ] install nvm + node
 
 PATH_TO_SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -39,9 +43,24 @@ install_rust() {
 install_apt_packages() {
   sudo apt-get update
   sudo apt-get upgrade -y
-  sudo apt-get install -y flameshot
+  # The basics in case I have a minimal system
+  sudo apt-get install -y curl \
+    git \
+    build-essential \
+    python3 \
+    python3-pip \
+    xclip
+  # my preferences
+  sudo apt-get install -y flameshot \
+    tree \
+    byobu \
+    neofetch \
+    htop \
+    texlive-full \
+    feh
 }
 
 ubuntu_or_die
-install_rust
+# Do the sudo work first
 install_apt_packages
+install_rust
