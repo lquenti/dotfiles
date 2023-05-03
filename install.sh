@@ -19,6 +19,13 @@
 
 PATH_TO_SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+ubuntu_or_die() {
+  if ! head -n 1 /etc/issue | grep -q "Ubuntu"; then
+    echo "This script is only for Ubuntu systems"
+    exit 1
+  fi
+}
+
 install_rust() {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   cargo install ripgrep
@@ -35,5 +42,6 @@ install_apt_packages() {
   sudo apt-get install -y flameshot
 }
 
-# call the function
+ubuntu_or_die
 install_rust
+install_apt_packages
