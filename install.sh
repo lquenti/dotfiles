@@ -21,8 +21,14 @@
 # - [ ] install lazygit
 # - [ ] install nvm + node
 # - [x] install docker
+# - [x] Install newest singularity
 
 PATH_TO_SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+PATH_TO_PKG_FOLDER="$HOME/pkg"
+
+prepare_folders() {
+  mkdir -p $PATH_TO_PKG_FOLDER
+}
 
 ubuntu_or_die() {
   if ! head -n 1 /etc/issue | grep -q "Ubuntu"; then
@@ -92,11 +98,52 @@ install_docker() {
   newgrp docker
 }
 
+install_singularity() {
+  # See: https://github.com/sylabs/singularity/blob/main/INSTALL.md
+
+  # let us only do this if singularity is not installed since
+  # this is not idempotent by default
+  if [ -x "$(command -v singularity)" ]; then
+    echo "Singularity is already installed"
+    return
+  fi
+
+  # Ensure repositories are up-to-date
+  sudo apt-get update
+  # Install debian packages for dependencies
+  sudo apt-get install -y \
+      build-essential \
+      libseccomp-dev \
+      libglib2.0-dev \
+      pkg-config \
+      squashfs-tools \
+      cryptsetup \
+      crun \
+      uidmap \
+      git \
+      wget
+  export VERSION=1.20.3 OS=linux ARCH=amd64  # change this as you need
+
+  wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz \
+    https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz
+  sudo tar -C /usr/local -xzf /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz
+  pushd $PATH_TO_PKG_FOLDER
+  git clone --recurse-submodules https://github.com/sylabs/singularity.git
+  cd singularity
+  git checkout --recurse-submodules v3.11.2
+  ./mconfig
+  make -C builddir
+  sudo make -C builddir install
+  popd
+}
+
 ubuntu_or_die
+prepare_folders
 
 # Install global stuff
 install_apt_packages
 install_docker
+install_singularity
 
 # Do user space stuff
 install_rust
