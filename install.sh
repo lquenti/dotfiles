@@ -1,5 +1,5 @@
 # Install script TODOs
-# - [ ] Install fzf
+# - [x] Install fzf
 # - [x] apt packages
 # - [x] Install ruststuff
 #   - [x] Rustup
@@ -45,6 +45,16 @@ install_rust() {
   cargo install tokei
   cargo install license-generator
   cargo install cargo-update
+}
+
+install_fzf() {
+  # if ~/.fzf exists, early exit
+  if [ -d "$HOME/.fzf" ]; then
+    echo "fzf is already installed"
+    return
+  fi
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --all
 }
 
 install_apt_packages() {
