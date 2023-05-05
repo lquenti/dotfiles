@@ -9,12 +9,12 @@
 #   - [x] tokei
 #   - [x] license-generator
 #   - [x] cargo update
-#   - [ ] bottom
+#   - [x] bottom
 # - [ ] Install font
 # - [ ] install newest nvim
 # - [ ] link nvim dotties
 # - [ ] link alacritty config
-#   - [ ] install alacritty
+#   - [x] install alacritty
 # - [ ] link bashrc
 # - [ ] link i3 config
 #   - [ ] install i3
@@ -22,6 +22,7 @@
 # - [ ] install nvm + node
 # - [x] install docker
 # - [x] Install newest singularity
+# - [ ] Anti-Root check (so that it installs the user space stuff for current user)
 
 PATH_TO_SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PATH_TO_PKG_FOLDER="$HOME/pkg"
@@ -45,6 +46,10 @@ install_rust() {
   cargo install tokei
   cargo install license-generator
   cargo install cargo-update
+  cargo install bottom
+  cargo install alacritty
+  cargo install cargo-benchcmp
+  cargo install critcmp
 }
 
 install_fzf() {
@@ -66,7 +71,7 @@ install_apt_packages() {
     build-essential \
     python3 \
     python3-pip \
-    xclip
+    xclip \
   # my preferences
   sudo apt-get install -y flameshot \
     tree \
