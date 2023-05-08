@@ -23,6 +23,7 @@
 # - [x] install docker
 # - [x] Install newest singularity
 # - [ ] Anti-Root check (so that it installs the user space stuff for current user)
+# - [ ] randrem + systemd
 
 PATH_TO_SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PATH_TO_PKG_FOLDER="$HOME/pkg"
