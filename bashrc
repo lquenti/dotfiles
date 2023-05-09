@@ -100,6 +100,13 @@ alias ba="python3 ~/code/mdtrack/main.py ~/ba_tracking.md"
 
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
+function update() {
+  sudo apt update
+  sudo apt upgrade
+  sudo snap refresh
+  cargo install-update -a
+}
+
 
 # Noise loady stuff
 [ -r /home/lquenti/.byobu/prompt ] && . /home/lquenti/.byobu/prompt   #byobu-prompt#
