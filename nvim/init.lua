@@ -79,3 +79,8 @@ local bufopts = { noremap=true, silent=true, buffer=bufnr }
 vim.keymap.set('n', "<C-x><C-D>", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set('n', "<C-x><C-d>", vim.lsp.buf.definition, bufopts)
 vim.keymap.set('n', "<C-x><C-i>", vim.lsp.buf.implementation, bufopts)
+
+-- TODO properly port me
+vim.api.nvim_command('autocmd FileType tex setlocal noautoindent')
+vim.api.nvim_command('autocmd FileType tex setlocal nosmartindent')
+vim.api.nvim_command('autocmd FileType tex setlocal indentexpr=')
