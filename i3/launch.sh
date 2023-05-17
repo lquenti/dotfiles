@@ -6,6 +6,7 @@ setxkbmap -option caps:escape
 
 # stuff
 flameshot &
+xscreensaver -no-splash &
 
 # Toggle touch with ESC
 toggle_touchpad() {
