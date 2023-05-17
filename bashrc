@@ -26,7 +26,7 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 EDITOR="nvim"
 BROWSER="firefox"
 
-PATH=/usr/local/go/bin:~/.cargo/bin/:~/.local/bin:~/.local/share/gem/ruby/3.0.0/bin:$PATH
+PATH=/usr/local/go/bin:~/.cargo/bin/:~/.local/bin:~/.local/share/gem/ruby/3.0.0/bin:~/.config/emacs/bin:$PATH
 
 alias ga='git add'
 alias gc='git commit'
