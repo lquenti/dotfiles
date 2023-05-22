@@ -1,3 +1,5 @@
+-- [ ] TODO look at bufferline.nvim
+
 require "lquenti.options"
 require "lquenti.keymaps"
 require "lquenti.plugins"
