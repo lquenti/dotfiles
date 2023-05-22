@@ -1,5 +1,9 @@
 -- [ ] Sorted
 
+-- Disable Netrw for nvim-tree since we overwrite it
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- :help options
 vim.opt.backup = false                          -- No backup when saving
 vim.opt.clipboard = "unnamedplus"               -- Normal system clipboard yanking

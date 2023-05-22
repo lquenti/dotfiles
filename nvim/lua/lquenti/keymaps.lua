@@ -10,8 +10,8 @@ k("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-k("n", "<leader>e", ":Lex 30<cr>", opts)
-k("n", "<C-x><C-f>", ":Lex 30<cr>", opts)
+k("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+k("n", "<C-x><C-f>", ":NvimTreeToggle<cr>", opts)
 
 -- Resize with arrows
 k("n", "<C-Up>", ":resize +2<CR>", opts)

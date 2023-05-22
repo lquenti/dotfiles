@@ -44,6 +44,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- Common dep
   use "nvim-lua/plenary.nvim" -- Common Dep
+  use "kyazdani42/nvim-web-devicons" -- Common dep + for nvim tree
 
   use "ntpeters/vim-better-whitespace"
   use "github/copilot.vim"
@@ -77,7 +78,8 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"
 
-
+  -- Nvim tree
+  use "kyazdani42/nvim-tree.lua"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
