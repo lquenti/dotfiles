@@ -48,6 +48,8 @@ return packer.startup(function(use)
   use "ntpeters/vim-better-whitespace"
   use "github/copilot.vim"
 
+  use 'Mofiqul/vscode.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

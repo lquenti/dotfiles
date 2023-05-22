@@ -20,3 +20,4 @@ vim.opt.showmode = true                         -- show which mode we are on
 vim.opt.smartcase = true                        -- smart case
 vim.opt.scrolloff = 4                           -- minimal number of lines to keep above and below cursor
 vim.opt.sidescrolloff = 4                       -- minimal number of lines to keep above and below cursor
+vim.opt.termguicolors = true                    -- true color support
