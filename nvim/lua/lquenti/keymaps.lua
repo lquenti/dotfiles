@@ -13,6 +13,8 @@ vim.g.maplocalleader = " "
 k("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 k("n", "<C-x><C-f>", ":NvimTreeToggle<cr>", opts)
 
+k("n", "<leader>f", ":normal gg=G<cr>", opts)
+
 -- Resize with arrows
 k("n", "<C-Up>", ":resize +2<CR>", opts)
 k("n", "<C-Down>", ":resize -2<CR>", opts)
