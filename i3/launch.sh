@@ -7,6 +7,7 @@ setxkbmap -option caps:escape
 # stuff
 flameshot &
 xscreensaver -no-splash &
+/home/lquenti/code/randrem/target/release/randrem /home/lquenti/code/randrem/example.json &
 
 # Toggle touch with ESC
 toggle_touchpad() {
@@ -19,3 +20,4 @@ toggle_touchpad() {
   fi
 }
 # TODO bind to key
+
