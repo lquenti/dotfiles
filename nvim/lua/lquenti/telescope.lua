@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local builtin = require('telescope.builtin')
 
 telescope.setup {
   defaults = {
@@ -94,3 +95,8 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
