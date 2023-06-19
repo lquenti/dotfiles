@@ -32,3 +32,7 @@ k("x", "J", ":move '>+0<CR>gv-gv", opts)
 k("x", "K", ":move '<-2<CR>gv-gv", opts)
 k("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 k("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- Navigate buffers
+k("n", "<S-l>", ":bnext<CR>", opts)
+k("n", "<S-h>", ":bprevious<CR>", opts)
