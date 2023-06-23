@@ -107,6 +107,10 @@ function update() {
   cargo install-update -a
 }
 
+# Git autocomplete
+# https://stackoverflow.com/a/18898614
+source /usr/share/bash-completion/completions/git
+
 
 # Noise loady stuff
 [ -r /home/lquenti/.byobu/prompt ] && . /home/lquenti/.byobu/prompt   #byobu-prompt#
