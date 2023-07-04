@@ -47,7 +47,6 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons" -- Common dep + for nvim tree
 
   use "ntpeters/vim-better-whitespace"
-  use "github/copilot.vim"
 
   use 'Mofiqul/vscode.nvim'
 
@@ -84,6 +83,10 @@ return packer.startup(function(use)
   ---  bufferline
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+
+  --- copilot lua
+  use "zbirenbaum/copilot.lua"
+  use "zbirenbaum/copilot-cmp"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

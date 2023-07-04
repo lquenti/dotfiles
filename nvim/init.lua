@@ -1,5 +1,3 @@
--- [ ] TODO fix collisions copilot + lsp + cmp
--- [ ] TODO let nvimtree always choose the last buffer
 
 require "lquenti.options"
 require "lquenti.keymaps"
@@ -11,6 +9,7 @@ require "lquenti.telescope"
 require "lquenti.treesitter"
 require "lquenti.nvimtree"
 require "lquenti.bufferline"
+require "lquenti.copilot"
 
   vim.cmd([[
     " Automatically resize splits after window size change
