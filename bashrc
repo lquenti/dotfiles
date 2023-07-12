@@ -37,6 +37,7 @@ alias gp='git push'
 alias gpu='git pull'
 
 alias gic='gh issue create --body ""'
+alias gil='gh issue list'
 
 alias ls='ls --color=auto'
 alias ll='ls -lahF'
