@@ -36,6 +36,8 @@ alias gs='git status'
 alias gp='git push'
 alias gpu='git pull'
 
+alias gic='gh issue create --body ""'
+
 alias ls='ls --color=auto'
 alias ll='ls -lahF'
 alias dir='dir --color=auto'
