@@ -73,6 +73,8 @@ install_apt_packages() {
     python3 \
     python3-pip \
     xclip \
+    cmake \
+    htop
   # my preferences
   sudo apt-get install -y flameshot \
     tree \
