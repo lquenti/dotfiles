@@ -47,6 +47,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias gppdbg='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -pedantic-errors -ggdb -Werror --std=c++20'
+alias gpprls='g++ -O2 -DNDEBUG'
+
 alias ..='cd ..'
 alias sl='ls'
 
