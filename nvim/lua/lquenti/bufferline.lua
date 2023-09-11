@@ -13,11 +13,8 @@ bufferline.setup {
     left_mouse_command = "buffer %d",
     middle_mouse_command = nil,
     indicator_icon = "▎",
-    buffer_close_icon = "",
     modified_icon = "●",
     close_icon = "",
-    left_trunc_marker = "",
-    right_trunc_marker = "",
     name_formatter = function(buf)
       if buf.name:match("%.md") then
         return vim.fn.fnamemodify(buf.name, ":t:r")
