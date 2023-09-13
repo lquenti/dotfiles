@@ -117,7 +117,6 @@ source /usr/share/bash-completion/completions/git
 
 
 # Noise loady stuff
-[ -r /home/lquenti/.byobu/prompt ] && . /home/lquenti/.byobu/prompt   #byobu-prompt#
 . "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
