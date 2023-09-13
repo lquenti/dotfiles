@@ -72,6 +72,9 @@ return packer.startup(function(use)
   use "zbirenbaum/copilot.lua"
   use "zbirenbaum/copilot-cmp"
 
+  -- color scheme
+  use "letorbi/vim-colors-modern-borland"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

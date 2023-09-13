@@ -1,15 +1,15 @@
 font:
   normal:
-    family: IBM Plex Mono
+    family: Perfect DOS VGA 437
     style: Regular
   bold:
-    family: IBM Plex Mono
+    family: Perfect DOS VGA 437
     style: Bold
   italic:
-    family: IBM Plex Mono
+    family: Perfect DOS VGA 437
     style: Italic
   bold_italic:
-    family: IBM Plex Mono
+    family: Perfect DOS VGA 437
     style: Bold Italic
   size: 8
   offset:

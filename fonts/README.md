@@ -5,3 +5,6 @@
 
 ## IBM font
 [Here](https://fonts.google.com/specimen/IBM+Plex+Mono)
+
+## VGA font
+[Here](https://www.dafont.com/perfect-dos-vga-437.font)
