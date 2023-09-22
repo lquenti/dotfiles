@@ -22,3 +22,5 @@ toggle_touchpad() {
 }
 # TODO bind to key
 
+# wallpaper
+feh --bg-scale ~/oC/pics/wp/el-captain.webp
