@@ -60,6 +60,10 @@ alias us='setxkbmap us'
 
 alias b="${BROWSER}"
 
+alias diff="delta"
+# side by side
+alias delta="delta -s"
+
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
 alias fehrand='feh --randomize'
