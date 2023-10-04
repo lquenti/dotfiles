@@ -1,15 +1,15 @@
 font:
   normal:
-    family: Perfect DOS VGA 437
+    family: VGA
     style: Regular
   bold:
-    family: Perfect DOS VGA 437
+    family: VGA
     style: Bold
   italic:
-    family: Perfect DOS VGA 437
+    family: VGA
     style: Italic
   bold_italic:
-    family: Perfect DOS VGA 437
+    family: VGA
     style: Bold Italic
   size: 8
   offset:
