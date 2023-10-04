@@ -35,9 +35,6 @@ alias gs='git status'
 alias gp='git push'
 alias gpu='git pull'
 
-alias gic='gh issue create --body ""'
-alias gil='gh issue list'
-
 alias ls='ls --color=auto'
 alias ll='ls -lahF'
 alias dir='dir --color=auto'
@@ -62,9 +59,6 @@ alias de='setxkbmap de'
 alias us='setxkbmap us'
 
 alias b="${BROWSER}"
-alias g="lazygit"
-# fuck is too long
-alias f="sudo !!"
 
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
@@ -101,16 +95,7 @@ alias xclip='xclip -selection c'
 # Thanks, https://write.corbpie.com/downloading-youtube-videos-as-audio-with-yt-dlp/
 alias yt-mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
-alias ba="python3 ~/code/mdtrack/main.py ~/ba_tracking.md"
-
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
-
-function update() {
-  sudo apt update
-  sudo apt upgrade
-  sudo snap refresh
-  cargo install-update -a
-}
 
 # Git autocomplete
 # https://stackoverflow.com/a/18898614
