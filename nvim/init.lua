@@ -189,7 +189,15 @@ require('lazy').setup({
   -- Nvim tree
   {
     'kyazdani42/nvim-tree.lua'
-  }
+  },
+
+  -- bufferline
+  {
+    'akinsho/bufferline.nvim',
+    dependencies = {
+      'moll/vim-bbye',
+    }
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -263,7 +271,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
+    callback = function()
     vim.highlight.on_yank()
   end,
   group = highlight_group,
@@ -366,11 +374,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -534,6 +538,55 @@ require("nvim-tree").setup({
 
 --vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>", {noremap = true })
 vim.keymap.set("n", "<C-x><C-f>", ":NvimTreeToggle<cr>", {noremap = true})
+
+-- configure bufferline
+require("bufferline").setup {
+ options = {
+   numbers = "none",
+   number_style = "",
+   mappings = true,
+   close_command = "bdelete! %d",
+   right_mouse_command = "bdelete! %d",
+   left_mouse_command = "buffer %d",
+   middle_mouse_command = nil,
+   indicator_icon = "▎",
+   modified_icon = "●",
+   close_icon = "",
+   name_formatter = function(buf)
+     if buf.name:match("%.md") then
+       return vim.fn.fnamemodify(buf.name, ":t:r")
+     end
+   end,
+   max_name_length = 18,
+   max_prefix_length = 15,
+   tab_size = 18,
+   diagnostics = false,
+   diagnostics_indicator = function(count, level, diagnostics_dict, context)
+     return "(" .. count .. ")"
+   end,
+   offsets = {
+     {
+       filetype = "NvimTree",
+       text = "File Explorer",
+       text_align = "center",
+     },
+   },
+   show_buffer_icons = true,
+   show_buffer_close_icons = false,
+   show_close_icon = false,
+   show_tab_indicators = true,
+   persist_buffer_sort = true,
+   separator_style = "thin",
+   enforce_regular_tabs = false,
+   always_show_bufferline = true,
+   sort_by = "id",
+ },
+}
+
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", {noremap = true})
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>", {noremap = true})
+
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
