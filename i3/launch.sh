@@ -9,6 +9,7 @@ flameshot &
 xscreensaver -no-splash &
 /home/lquenti/code/randrem/target/release/randrem /home/lquenti/code/randrem/example.json &
 owncloud &
+dunst &
 
 # Toggle touch with ESC
 toggle_touchpad() {
