@@ -101,6 +101,8 @@ alias yt-mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
+alias venv='if [[ ! -d venv ]]; then echo "creating venv"; python3 -m venv venv; echo "venv/" >> ./.gitignore; fi; source ./venv/bin/activate'
+
 # Git autocomplete
 # https://stackoverflow.com/a/18898614
 source /usr/share/bash-completion/completions/git
@@ -116,3 +118,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
+export PATH=$PATH:/usr/local/go/bin
