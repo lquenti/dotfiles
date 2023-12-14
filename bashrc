@@ -64,6 +64,9 @@ alias diff="delta"
 # side by side
 alias delta="delta -s"
 
+# requires `tre`
+alias tree="tre"
+
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
 alias fehrand='feh --randomize'
@@ -101,7 +104,8 @@ alias yt-mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
-alias venv='if [[ ! -d venv ]]; then echo "creating venv"; python3 -m venv venv; echo "venv/" >> ./.gitignore; fi; source ./venv/bin/activate'
+alias venv='if [[ ! -d venv ]]; then echo "creating venv"; python3 -m venv venv; echo "venv/" >> ./.gitignore; if [[ -f ./requirements.txt ]]; then echo "requirements.txt found, installing"; ./venv/bin/pip install -r ./requirements.txt; fi; fi; source ./venv/bin/activate'
+
 
 # Git autocomplete
 # https://stackoverflow.com/a/18898614
