@@ -104,8 +104,21 @@ alias yt-mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
-alias venv='if [[ ! -d venv ]]; then echo "creating venv"; python3 -m venv venv; echo "venv/" >> ./.gitignore; if [[ -f ./requirements.txt ]]; then echo "requirements.txt found, installing"; ./venv/bin/pip install -r ./requirements.txt; fi; fi; source ./venv/bin/activate'
-
+function setup_venv() {
+    if [[ ! -d venv ]]; then 
+        echo "creating venv"
+        python3 -m venv venv
+        if [[ ! -f ./.gitignore ]] || ! grep -q "^venv/$" ./.gitignore; then
+            echo "venv/" >> ./.gitignore
+        fi
+        if [[ -f ./requirements.txt ]]; then 
+            echo "requirements.txt found, installing"
+            ./venv/bin/pip install -r ./requirements.txt
+        fi
+    fi
+    source ./venv/bin/activate
+}
+alias venv=setup_venv
 
 # Git autocomplete
 # https://stackoverflow.com/a/18898614
