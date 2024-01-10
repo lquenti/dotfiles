@@ -41,6 +41,9 @@ alias egrep='egrep --color=auto'
 
 alias gppdbg='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Wshadow -pedantic-errors -ggdb -Werror --std=c++23'
 alias gpprls='g++ -O2 -DNDEBUG'
+alias gccdbg='gcc -Wall -Wextra -Wconversion -Wsign-conversion -Wshadow -pedantic-errors -ggdb -Werror --std=c11'
+alias gccrls='gcc -O2 -DNDEBUG'
+
 
 alias ..='cd ..'
 alias sl='ls'
@@ -138,11 +141,8 @@ source /usr/share/bash-completion/completions/git
 # Noise loady stuff
 . "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 [ -f "/home/lquenti/.ghcup/env" ] && source "/home/lquenti/.ghcup/env" # ghcup-env
 export PATH=$PATH:/usr/local/go/bin
