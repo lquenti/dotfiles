@@ -15,10 +15,6 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
 PS1='\[\033[01;32m\]\w\[\033[00m\] \$ '
 
 
@@ -65,7 +61,7 @@ alias diff="delta"
 alias delta="delta -s"
 
 # requires `tre`
-alias tree="tre"
+alias tree="tre-command"
 
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
