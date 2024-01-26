@@ -41,7 +41,7 @@ alias egrep='egrep --color=auto'
 
 alias gppdbg='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Wshadow -pedantic-errors -ggdb -Werror --std=c++23'
 alias gpprls='g++ -O2 -DNDEBUG'
-alias gccdbg='gcc -Wall -Wextra -Wconversion -Wsign-conversion -Wshadow -pedantic-errors -ggdb -Werror --std=c11'
+alias gccdbg='gcc -Wall -Wextra -Wconversion -Wsign-conversion -Wshadow -pedantic-errors -ggdb -Werror --std=c90'
 alias gccrls='gcc -O2 -DNDEBUG'
 
 
