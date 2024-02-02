@@ -7,6 +7,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.cmd.colorscheme 'delek'
+
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -87,16 +89,6 @@ require('lazy').setup({
       end,
     },
   },
-
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -131,10 +123,7 @@ require('lazy').setup({
 
   -- bufferline
   {
-    'akinsho/bufferline.nvim',
-    dependencies = {
-      'moll/vim-bbye',
-    }
+    'akinsho/bufferline.nvim'
   },
 }, {})
 
