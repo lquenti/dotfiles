@@ -66,6 +66,9 @@ alias delta="delta -s"
 # requires `tre`
 alias tree="tre-command"
 
+# cat + csv
+alias csvat='xsv table'
+
 alias feh='feh --scale-down --image-bg "#1D1F21"'
 alias fehnew='feh -S mtime'
 alias fehrand='feh --randomize'
