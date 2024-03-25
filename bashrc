@@ -140,8 +140,8 @@ startwork() {
   tmux new-session -d -s work
   tmux split-window -h
   tmux split-window -v
-  tmux send-keys -t work:0.0 'vim ~/code/lquentin/docs/timetracking.md' C-m
-  tmux send-keys -t work:0.1 'vim ~/oC/offtime.md' C-m
+  tmux send-keys -t work:0.0 'vim ~/oC/docs/timetracking_priv.md' C-m
+  tmux send-keys -t work:0.1 'vim ~/oC/docs/work.md' C-m
   tmux send-keys -t work:0.2 'python3' C-m # for calculator
   tmux attach-session -t work
 }
