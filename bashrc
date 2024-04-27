@@ -15,7 +15,25 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-PS1='\[\033[01;32m\]\w\[\033[00m\] \$ '
+
+# Emulate an MS-DOS prompt in your Linux shell.
+# Laszlo Szathmary (jabba.laci@gmail.com), 2011
+# Project home page:
+# https://ubuntuincident.wordpress.com/2011/02/08/emulate-the-ms-dos-prompt/
+#
+#
+# Modified by Soldier of Fortran
+#
+# Add to you ~/.bashrc file with: 'source ~/.themes/95/bashrc'
+
+function msdos_pwd
+{
+    local dir="`pwd`"
+
+    echo $dir | tr '/' '\\'
+}
+
+export PS1='C:`msdos_pwd`> '
 
 
 EDITOR="nvim"
@@ -145,6 +163,12 @@ startwork() {
   tmux send-keys -t work:0.2 'python3' C-m # for calculator
   tmux attach-session -t work
 }
+
+echo 
+echo
+echo "Microsoft(R) Windows 95"
+echo "   (C)Copyright Microsoft Corp 1981-1996."
+echo
 
 
 # Git autocomplete
