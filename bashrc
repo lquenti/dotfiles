@@ -164,13 +164,6 @@ startwork() {
   tmux attach-session -t work
 }
 
-echo 
-echo
-echo "Microsoft(R) Windows 95"
-echo "   (C)Copyright Microsoft Corp 1981-1996."
-echo
-
-
 # Git autocomplete
 # https://stackoverflow.com/a/18898614
 source /usr/share/bash-completion/completions/git
